@@ -1,0 +1,55 @@
+.headerWrapper{
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 252px 1fr 252px;
+    padding: .507rem;
+
+    background-color: #252527;
+    width: 100%;
+}
+
+.logoWrapper{
+    width: 252px;
+}
+
+
+.headerButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.button, .buttonLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+}
+
+.button{
+    padding: .65rem;
+    min-height: 32px;
+    transition: background 300ms ease;
+}
+
+.button:hover{
+    background-color: rgba(255, 255, 255, .1);
+    transition: background 300ms ease;
+}
+
+.buttonText{
+    color: #bfbfbf;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.buttonLogin{
+    background-color: #5e35b1;
+    padding: .3rem .65rem;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    height: 32px;
+}
