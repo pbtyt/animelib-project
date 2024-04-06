@@ -1,16 +1,18 @@
-.continueWatchSectionWrapper{
+.watchNowWrapper{
     background-color: #1c1c1c;
     border-radius: 8px;
     
     padding: 1rem;
 }
 
-.continueWatchSectionHeader{
-    display: flex;
-}
-
-.continueTitle{
+.watchNowTitle{
     color: #bfbfbf;
     font-weight: 600;
     font-size: 18px;
+}
+
+.watchNowContent{
+    margin-top: .5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }

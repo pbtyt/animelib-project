@@ -1,0 +1,48 @@
+.scrollerWrapper{
+    position: relative;
+}
+
+.scroller{
+    display: flex;
+    gap: 1rem;
+
+    overflow: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.arrowWrapper{
+    display: flex;
+    align-items: center;
+    
+    position: absolute;
+    top: 0;
+    
+    height: 100%;
+    width: 4.3rem;
+}
+
+.rightArrow, .leftArrow{
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    
+    background-color: #303032;
+    box-shadow: rgba(0,0,0,.12) 0 1px 3px;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.rightArrow.hoveredR{
+    display: flex;
+    transform: translateX(15px);
+}
+
+.leftArrow.hoveredL{
+    display: flex;
+    transform: translateX(-15px);
+}

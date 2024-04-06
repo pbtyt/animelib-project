@@ -1,7 +1,7 @@
 .sliderWrapper{
     width: 433px;
     position: relative;
-    cursor: pointer;
+    /* cursor: pointer; */
 
     /* !MAYBE DELETE THIS () */
     height: 12px;
