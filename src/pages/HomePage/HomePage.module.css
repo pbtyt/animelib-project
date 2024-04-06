@@ -1,4 +1,8 @@
 .container{
     align-self: center;
     max-width: 1200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }

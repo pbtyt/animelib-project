@@ -1,0 +1,57 @@
+.cwCardWrapper{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    background-color: #252527;
+    padding: 8px;
+    border-radius: 8px;
+
+    /* hz naschet height */
+    width: 300px;
+    height: 97px;
+
+    position: relative;
+}
+
+.cwAnimePoster{
+    object-fit: cover;
+    width: 56px;
+    height: 80px;
+    border-radius: 6px;
+}
+
+.cwAnimeInfo{
+    flex-grow: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .15rem;
+
+    height: 100%;
+}
+
+.cwAnimeTitle{
+    font-size: 15px;
+    font-weight: 600;
+    color: #bfbfbf;
+}
+
+.continueInfo{
+    color: rgba(235, 235, 245, .5);
+    font-size: 12px;
+}
+
+.close{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #303032;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}

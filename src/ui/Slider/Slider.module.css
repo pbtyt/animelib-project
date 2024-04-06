@@ -1,0 +1,28 @@
+.sliderWrapper{
+    width: 433px;
+    position: relative;
+    cursor: pointer;
+
+    /* !MAYBE DELETE THIS () */
+    height: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.slider{
+    border-radius: 4px;
+    width: 65%;
+    background-color: #9575cd;
+    height: 6px;
+    position: relative;
+}
+
+.sliderWrapper::before{
+    content: "";
+    position: absolute;
+    border-radius: 4px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(118, 118, 128, .24);
+    height: 6px;
+}
