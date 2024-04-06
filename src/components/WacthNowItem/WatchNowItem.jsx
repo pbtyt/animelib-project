@@ -2,14 +2,15 @@ import React from 'react'
 
 import styles from './WatchNowItem.module.css'
 import WatchNowCard from '../WacthNowCard/WatchNowCard'
+import { Subtitles } from 'lucide-react'
 
-const WatchNowItem = () => {
+const WatchNowItem = ({ subTitle = "Новинки" }) => {
     return (
         <div className={styles.watchNowItemWrapper}>
             <span
                 style={{ color: 'rgba(235, 235, 245, .5)', fontSize: '15px', fontWeight: '600' }}
             >
-                Новинки
+                {subTitle}
         </span>
             <WatchNowCard/>
             <WatchNowCard/>
