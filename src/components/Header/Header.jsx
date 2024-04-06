@@ -26,7 +26,7 @@ const Header = () => {
         </div>
         <div className={styles.headerLogin}>
             <button className={styles.buttonLogin}>
-                <LogIn color='#fff' width={14} height={14} strokeWidth={4}/>
+                <LogIn color='#fff' width={16} height={16} strokeWidth={4}/>
                 <span>Вход | Регистрация</span>
             </button>
         </div>

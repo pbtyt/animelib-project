@@ -1,9 +1,10 @@
 .headerWrapper{
-    margin: 0 auto;
     display: grid;
     align-items: center;
     grid-template-columns: 252px 1fr 252px;
+    
     padding: .507rem;
+    margin-bottom: 1rem;
 
     background-color: #252527;
     width: 100%;
@@ -52,4 +53,8 @@
     font-size: 1em;
     font-weight: 400;
     height: 32px;
+}
+
+.buttonLogin span{
+    line-height: 0;
 }
