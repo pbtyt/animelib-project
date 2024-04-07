@@ -1,0 +1,25 @@
+.inputWrapper{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    
+    padding: 8px;
+    border: 1px solid #3b3d45;
+    border-radius: 5px;
+
+    transition: border 400ms ease;
+}
+
+.input{
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.input::placeholder{
+    font-weight: 500;
+}
+
+.inputWrapper:focus-within{
+    border: 1px solid #4b4d55;
+    transition: border 400ms ease;
+}

@@ -3,7 +3,7 @@ import styles from './DropDown.module.css'
 
 import { ChevronDown } from 'lucide-react'
 
-const DropDown = ({children, dropDownTitle, button}) => {
+const DropDown = ({children, dropDownTitle, button, minMenuWidth = "160", topOffset = "35" }) => {
     const [isOpened, setIsOpened] = useState(false);
     
     return (
@@ -20,7 +20,10 @@ const DropDown = ({children, dropDownTitle, button}) => {
                     : button
             } 
 
-            <ul className={`${styles.choose} ${isOpened ? styles.opened : ''}`}>
+            <ul
+                className={`${styles.choose} ${isOpened ? styles.opened : ''}`}
+                style={{minWidth: `${minMenuWidth}px`, top: `${topOffset}px`}}
+            >
                 {children}
             </ul>
         </div>

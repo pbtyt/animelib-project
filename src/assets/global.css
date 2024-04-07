@@ -31,3 +31,10 @@ a{
 img{
     user-select: none;
 }
+
+input{
+    outline: none;
+    background: none;
+    border: none;
+    color: #bfbfbf;
+}

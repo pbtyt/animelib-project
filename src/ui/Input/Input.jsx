@@ -1,0 +1,24 @@
+import React, { useState } from 'react'
+import styles from './Input.module.css'
+
+import { Search, X } from 'lucide-react'
+
+const Input = ({ placeholder = "Поиск по названию" }) => {
+    const [inputValue, setInputValue] = useState('');
+    return (
+    <div className={styles.inputWrapper}>
+        <Search size={16} color='#bfbfbf' strokeWidth={2}/>
+        
+        <input type="text" placeholder={placeholder} value={inputValue} className={styles.input}
+            onChange={(event)=>{setInputValue(event.target.value)}}
+        />
+        {
+            inputValue.length > 0 ? 
+            <X size={12} color="#bfbfbf" strokeWidth={2} style={{cursor: 'pointer'}} onClick={()=>{setInputValue('')}}/>
+            : <></>
+        }
+    </div>
+  )
+}
+
+export default Input
