@@ -1,0 +1,25 @@
+.filterSection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: .4rem;
+    transition: all 300ms ease;
+}
+
+.filterSection:hover{
+    background: rgba(116, 116, 128, .1);
+    transition: all 300ms ease;
+}
+
+.filterSectionTitle{
+    color: #bfbfbf;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.filterSectionSelected{
+    line-height: 1;
+    color: rgba(235, 235, 245, .5);
+    font-size: 12px;
+    margin-right: 5px;
+}

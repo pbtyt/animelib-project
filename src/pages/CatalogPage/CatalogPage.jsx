@@ -5,11 +5,13 @@ import Catalog from '../../components/Catalog/Catalog'
 import DropDown from '../../ui/DropDown/DropDown'
 import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem'
 import Input from '../../ui/Input/Input'
+import Filter from '../../components/Filter/Filter'
 
 const CatalogPage = () => {
   return (
     <div className={styles.container}>
-        <div className={styles.pageHeader}>
+      <div className={styles.catalogWrapper}>
+        <div className={styles.catalogHeader}>
             <span className={styles.sectionTitle}>Каталог</span>
             <div style={{flexGrow: '1'}}></div>
             <DropDown dropDownTitle={'По популярности'} minMenuWidth='205'>
@@ -35,6 +37,11 @@ const CatalogPage = () => {
         </div>
         <Input/>
         <Catalog/>
+      </div>
+
+      <div className={styles.filterWrapper}>
+        <Filter/>
+      </div>
     </div>
   )
 }
