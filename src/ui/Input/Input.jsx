@@ -3,14 +3,16 @@ import styles from './Input.module.css'
 
 import { Search, X } from 'lucide-react'
 
-const Input = ({ placeholder = "Поиск по названию", type = "text", inputmode = "", minValue="", maxValue="" }) => {
+const Input = ({ placeholder = "Поиск по названию", type = "text", inputmode = "", minValue = "", maxValue = "", padding = "8" }) => {
     const [inputValue, setInputValue] = useState('');
     return (
-        <div className={styles.inputWrapper}>
+        <div className={styles.inputWrapper}
+            style={{padding: `${padding}px`}}
+        >
             {
-                type==="text" ?
-                <Search size={16} color='#bfbfbf' strokeWidth={2} />
-                : <></>
+                type === "text" ?
+                    <Search size={16} color='#bfbfbf' strokeWidth={2} />
+                    : <></>
             }
 
             <input type={type} inputMode={inputmode} placeholder={placeholder} min={minValue} max={maxValue} value={inputValue} className={styles.input}

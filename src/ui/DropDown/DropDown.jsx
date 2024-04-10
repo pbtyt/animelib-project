@@ -14,7 +14,7 @@ const DropDown = ({children, dropDownTitle, button, minMenuWidth = "160", topOff
                 !button 
                     ?
                     <button className={styles.defaultButton}>
-                        <span>{dropDownTitle}</span>
+                        <span style={{fontSize: '14px'}}>{dropDownTitle}</span>
                         <ChevronDown width={16} height={16} strokeWidth={1.8}/>
                     </button>
                     : button
