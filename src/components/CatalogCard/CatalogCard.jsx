@@ -1,21 +1,21 @@
 import React from 'react'
 import styles from './CatalogCard.module.css'
 
-const CatalogCard = () => {
+const CatalogCard = ({ title = "Anime Title", type = "Anime Type", rating = "0,0", poster_src = "./posters/jujutsu-kaisen.jpg" }) => {
   return (
     <div className={styles.catalogCardWrapper}>
-        <img className={styles.cardPoster} src="./posters/jujutsu-kaisen.jpg" alt="poster" />
+        <img className={styles.cardPoster} src={poster_src} alt="poster" />
         <span className={styles.cardTitle}>
-            Магическая битва
+            {title}
         </span>
         <span className={styles.cardType}>
-            TV
+            {type}
         </span>
 
         <div className={styles.rating}>
           <span
             style={{fontSize: '11px', fontWeight: '700'}}
-          >9,3</span>
+          >{rating}</span>
         </div>
     </div>
   )
