@@ -10,11 +10,12 @@ const Catalog = () => {
     <div className={styles.catalogWrapper}>
       {
         data.slice(0, 30).map(
-          anime_data => <CatalogCard 
+          (anime_data, index) => <CatalogCard 
                           title={anime_data.titles.ru} 
                           type={anime_data.type} 
                           rating={anime_data.rating}
                           poster_src={anime_data.cover.default}
+                          index={index+1}
                           key={anime_data.id}
                         />
         )

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './CatalogCard.module.css'
 import CatalogCardHover from '../CatalogCardHover/CatalogCardHover'
 
-const CatalogCard = ({ title = "Anime Title", type = "Anime Type", rating = "0,0", poster_src = "./posters/jujutsu-kaisen.jpg" }) => {
+const CatalogCard = ({ index, title = "Anime Title", type = "Anime Type", rating = "0,0", poster_src = "./posters/jujutsu-kaisen.jpg" }) => {
+  const [isHover, setIsHover] = useState(false)
   return (
-    <div className={styles.catalogCardWrapper}>
+    <div className={styles.catalogCardWrapper}
+      onMouseEnter={()=>setIsHover(true)}
+      onMouseLeave={()=>setIsHover(false)}
+    >
       <img className={styles.cardPoster} src={poster_src} alt="poster" />
       <span className={styles.cardTitle}>
         {title}
@@ -18,10 +22,10 @@ const CatalogCard = ({ title = "Anime Title", type = "Anime Type", rating = "0,0
           style={{ fontSize: '11px', fontWeight: '700' }}
         >{rating}</span>
       </div>
-
+      
       {
-        title === "Магическая битва" ?
-          <CatalogCardHover />
+        (isHover)
+          ? <CatalogCardHover index={index}/>
           : <></>
       }
     </div>
