@@ -4,6 +4,8 @@
     gap: .2rem;
 
     position: relative;
+
+    cursor: pointer;
 }
 
 .cardPoster{

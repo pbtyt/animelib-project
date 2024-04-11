@@ -1,0 +1,62 @@
+.ccHoverWrapper{
+    position: absolute;
+    z-index: 99;
+
+    background-color: #252527;
+    border: 1px solid rgba(84, 84, 88, .65);
+    border-radius: 8px;
+
+    width: 400px;
+}
+
+.ccHoverHeader{
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ccHoverTitle{
+    color: #bfbfbf;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.ccHoverEngTitle{
+    color: rgba(235, 235, 245, .5);
+    font-size: 12px;
+}
+
+.ccHoverInfo{
+    display: flex;
+
+    background-color: rgba(116, 116, 128, .1);
+
+    padding: 8px 16px;
+}
+
+.infoItem{
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.infoItemH{
+    color: rgba(235, 235, 245, .5);
+    font-size: 13px;
+}
+
+.infoItemC{
+    color: #bfbfbf;
+    font-size: 15px;
+}
+
+.ccHoverDesc{
+    color: #bfbfbf;
+    font-size: 14px;
+    padding: 12px 16px;
+    max-height: 90px;
+    text-overflow: ellipsis;
+}
