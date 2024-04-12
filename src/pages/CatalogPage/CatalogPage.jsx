@@ -9,6 +9,7 @@ import Filter from '../../components/Filter/Filter'
 import SearchModal from '../../components/SearchModal/SearchModal'
 
 const CatalogPage = () => {
+
   return (
     <div className={styles.container}>
       <div className={styles.catalogWrapper}>

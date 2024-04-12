@@ -1,29 +1,29 @@
 import React from 'react'
 import styles from './SearchModalItem.module.css'
 
-const SearchModalItem = () => {
-  return (
-    <div className={styles.smItem}>
-        <img src="./posters/jujutsu-kaisen.jpg" alt="poster" className={styles.smPoster} />
+const SearchModalItem = ({ data = {} }) => {
+    return (
+        <div className={styles.smItem}>
+            <img src={data.cover.thumbnail} alt="poster" className={styles.smPoster} />
 
-        <div className={styles.smInfo}>
-            <span className={styles.status}>
-                Завершён
-            </span>
-            <span className={styles.title}>
-                Магическая битва
-            </span>
-            <div className={styles.tr}>
-                <span className={styles.type}>
-                    TV сериалы
+            <div className={styles.smInfo}>
+                <span className={styles.status}>
+                    {data.status}
                 </span>
-                <span className={styles.releaseDate}>
-                    03 октября 2020г.
+                <span className={styles.title}>
+                    {data.titles.ru}
                 </span>
+                <div className={styles.tr}>
+                    <span className={styles.type}>
+                        {data.type}
+                    </span>
+                    <span className={styles.releaseDate}>
+                        {data.release_date}
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default SearchModalItem
