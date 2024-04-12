@@ -6,6 +6,7 @@ import DropDown from '../../ui/DropDown/DropDown'
 import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem'
 import Input from '../../ui/Input/Input'
 import Filter from '../../components/Filter/Filter'
+import SearchModal from '../../components/SearchModal/SearchModal'
 
 const CatalogPage = () => {
   return (
@@ -42,6 +43,8 @@ const CatalogPage = () => {
       <div className={styles.filterWrapper}>
         <Filter/>
       </div>
+
+      <SearchModal/>
     </div>
   )
 }

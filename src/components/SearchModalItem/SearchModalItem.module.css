@@ -1,0 +1,46 @@
+.smItem{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px;
+
+    background-color: rgba(116, 116, 128, .1);
+    border-radius: 6px;
+
+    width: 100%;
+
+}
+
+.smPoster{
+    width: 56px;
+    border-radius: 6px;
+}
+
+.smInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.status{
+    color: #bfbfbf;
+    font-size: 12px;
+}
+
+.title{
+    color: #bfbfbf;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.tr{
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    color: rgba(235, 235, 245, .5);
+    font-size: 12px;
+}

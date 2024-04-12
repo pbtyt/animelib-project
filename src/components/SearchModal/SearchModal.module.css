@@ -1,0 +1,97 @@
+.modalWrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1231;
+    overflow: auto;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,.6);
+}
+
+.modalContent{
+    width: 740px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 6px;
+    background-color: #1c1c1c;
+    /* padding: 0 12px; */
+}
+
+.inputWrapper{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: 0 12px;
+
+    border-bottom: 1px solid rgba(84, 84, 88, .65);
+}
+
+.input{
+    width: 100%;
+    height: 46px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.input::placeholder{
+    font-size: 15px;
+}
+
+.tabsWrapper{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 0 12px;
+
+    border-bottom: 1px solid rgba(84, 84, 88, .65);
+}
+
+.tab{
+    padding: 12px 0;
+    position: relative;
+}
+
+.tabText{
+    font-size: 15px;
+    color: #bfbfbf;
+    font-weight: 400;
+}
+
+.tabText.isActive::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    border-radius: 3px 3px 0 0;
+    background-color: #9575cd;
+}
+
+.searchResultWrapper{
+    padding: 12px;
+
+    min-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.searchResultWrapper .empty{
+    color: rgba(235, 235, 245, .5);
+    font-weight: 400;
+    text-align: center;
+}
