@@ -17,7 +17,7 @@ const Catalog = () => {
   return (
     <div className={styles.catalogWrapper}>
       {
-        animeTitles.map(
+        animeTitles?.map(
           (anime_data, index) => <CatalogCard
             title={anime_data.titles.ru}
             type={anime_data.type}

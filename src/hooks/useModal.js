@@ -5,17 +5,17 @@ import { ModalContext } from '../providers/ModalProvider'
 
 
 const useModal = () => {
-    const { setIsModalOpen } = useContext(ModalContext);
-    const showModal = useCallback(() => {
+    const { setActiveModal } = useContext(ModalContext);
+    const showModal = useCallback((modalElement) => {
         console.warn('[useModal]: re-render showModal');
         toggleBodyOverflow(false);
-        setIsModalOpen(true);
+        setActiveModal(modalElement);
     }, [])
 
     const hideModal = useCallback(() => {
         console.warn('[useModal]: re-render hideModal');
         toggleBodyOverflow(true);
-        setIsModalOpen(false);
+        setActiveModal();
     }, [])
 
     return { showModal, hideModal }

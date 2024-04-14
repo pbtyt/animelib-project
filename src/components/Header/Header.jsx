@@ -1,16 +1,19 @@
 import React from 'react'
 import styles from './Header.module.css'
 
-import { useNavigate  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import useModal from '../../hooks/useModal'
 
 import { Layers, Search, MessagesSquare, LogIn, Ellipsis, Flame, Star, Compass, Users, User, SquareUser, GalleryVerticalEnd, Landmark, CircleUserRound } from 'lucide-react'
 
 import DropDown from '../../ui/DropDown/DropDown'
 import DropDownItem from '../../ui/DropDownItem/DropDownItem'
 import HeaderButton from '../../ui/HeaderButton/HeaderButton'
+import SearchModal from '../SearchModal/SearchModal'
 
 const Header = () => {
     const navigate = useNavigate();
+    const { showModal, hideModal } = useModal();
     return (
         <div className={styles.headerWrapper}>
             <div className={styles.logoWrapper}>
@@ -28,9 +31,9 @@ const Header = () => {
                     <div className={styles.grid}>
                         <div className={styles.col} style={{ paddingRight: '.65rem' }}>
                             <DropDownItem icon={<Layers color="#bfbfbf" width={14} height={14} strokeWidth={3} />}
-                                          text='Тайтлы'
-                                          isSelect={true}
-                                          onClick={()=>{navigate("/catalog")}}
+                                text='Тайтлы'
+                                isSelect={true}
+                                onClick={() => { navigate("/catalog") }}
                             />
                             <DropDownItem icon={<Flame width={14} height={14} color='#bfbfbf' strokeWidth={3} />} text='Сейчас смотрят' />
                             <DropDownItem icon={<Star color="#bfbfbf" width={14} height={14} strokeWidth={3} />} text='Коллекции' />
@@ -55,6 +58,7 @@ const Header = () => {
                 </DropDown>
 
                 <HeaderButton
+                    onClick={() => { showModal(<SearchModal />) }}
                     icon={<Search color="#bfbfbf" width={16} height={16} strokeWidth={3} />}
                     text='Поиск'
                 />

@@ -7,18 +7,19 @@ import {ChevronRight} from 'lucide-react'
 import WatchNowItem from '../WacthNowItem/WatchNowItem'
 import DropDown from '../../ui/DropDown/DropDown'
 import DropDownItem from '../../ui/DropDownItem/DropDownItem'
+import ModalBase from '../ModalBase/ModalBase'
 
 const WatchNow = () => {
   return (
     <div className={styles.watchNowWrapper}>
       <div className={styles.watchNowHeader}>
         <span className={styles.watchNowTitle}>Сейчас смотрят</span>
-        
-        <DropDown dropDownTitle={"За день"}>
-          <DropDownItem text={'За день'} isSelect={true}/>
-          <DropDownItem text={'За неделю'}/>
-          <DropDownItem text={'За месяц'}/>
-        </DropDown>
+          
+          <DropDown dropDownTitle={"За день"}>
+            <DropDownItem text={'За день'} isSelect={true}/>
+            <DropDownItem text={'За неделю'}/>
+            <DropDownItem text={'За месяц'}/>
+          </DropDown>
 
         <div style={{flexGrow: '1'}}></div>
         <button

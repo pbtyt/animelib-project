@@ -44,8 +44,6 @@ const CatalogPage = () => {
       <div className={styles.filterWrapper}>
         <Filter/>
       </div>
-
-      <SearchModal/>
     </div>
   )
 }
