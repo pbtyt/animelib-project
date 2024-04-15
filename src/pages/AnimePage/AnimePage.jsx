@@ -10,12 +10,13 @@ import DropDown from '../../ui/DropDown/DropDown'
 import DropDownItem from '../../ui/DropDownItem/DropDownItem'
 import ModalBase from '../../components/ModalBase/ModalBase'
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox'
+import Comment from '../../components/Comment/Comment'
 
 const AnimePage = () => {
   const { showModal } = useModal();
   const modalRef = useRef(null);
 
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(2);
 
   return (
     <div className={styles.container}>
@@ -193,15 +194,27 @@ const AnimePage = () => {
                               <div className={styles.settingsModalFilters}>
                                 <div className={styles.settingsModalFilter}>
                                   <FilterCheckbox />
-                                  <span>
-                                    Отключить комментарии в плеере
-                                  </span>
+                                  <p>
+                                    <span>
+                                      Отключить комментарии
+                                    </span>
+                                    <span> </span>
+                                    <span style={{fontWeight: '600'}}>
+                                      в плеере
+                                    </span>
+                                  </p>
                                 </div>
                                 <div className={styles.settingsModalFilter}>
                                   <FilterCheckbox />
-                                  <span>
-                                    Отключить комментарии на странице тайтла
-                                  </span>
+                                  <p>
+                                    <span>
+                                      Отключить комментарии
+                                    </span>
+                                    <span> </span>
+                                    <span style={{fontWeight: '600'}}>
+                                      на странице тайтла
+                                    </span>
+                                  </p>
                                 </div>
                                 <div className={styles.settingsModalFilter}>
                                   <FilterCheckbox defaultValue={true} />
@@ -225,10 +238,14 @@ const AnimePage = () => {
                   <Input placeholder='Написать комментарий...' padding='12' />
                 </div>
 
-                <div style={{ height: '100px' }}>
-
+                <div>
+                  <Comment/>
+                  <Comment/>
+                  <Comment/>
+                  <Comment/>
+                  <Comment/>
+                  <Comment/>
                 </div>
-
               </div>
             }
           </div>

@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './CatalogPage.module.css'
 
+import { Search } from 'lucide-react'
+
 import Catalog from '../../components/Catalog/Catalog'
 import DropDown from '../../ui/DropDown/DropDown'
 import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem'
 import Input from '../../ui/Input/Input'
 import Filter from '../../components/Filter/Filter'
-import SearchModal from '../../components/SearchModal/SearchModal'
 
 const CatalogPage = () => {
 
@@ -37,7 +38,7 @@ const CatalogPage = () => {
                 <DropDownRatioItem text='По возрастанию'/>
             </DropDown>
         </div>
-        <Input/>
+        <Input icon={<Search size={16} color='#bfbfbf' strokeWidth={2} />}/>
         <Catalog/>
       </div>
 

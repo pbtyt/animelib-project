@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import styles from './CatalogCard.module.css'
+
+import { Link } from 'react-router-dom'
+
 import CatalogCardHover from '../CatalogCardHover/CatalogCardHover'
 
 const CatalogCard = ({ index, title = "Anime Title", type = "Anime Type", rating = "0,0", poster_src = "./posters/jujutsu-kaisen.jpg" }) => {
   const [isHover, setIsHover] = useState(false)
   return (
-    <div className={styles.catalogCardWrapper}
+    <Link className={styles.catalogCardWrapper}
       onMouseEnter={()=>setIsHover(true)}
       onMouseLeave={()=>setIsHover(false)}
+      to={"/anime"}
     >
       <img className={styles.cardPoster} src={poster_src} alt="poster" />
       <span className={styles.cardTitle}>
@@ -28,7 +32,7 @@ const CatalogCard = ({ index, title = "Anime Title", type = "Anime Type", rating
           ? <CatalogCardHover index={index}/>
           : <></>
       }
-    </div>
+    </Link>
   )
 }
 
