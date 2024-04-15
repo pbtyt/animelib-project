@@ -13,7 +13,6 @@
     width: 100%;
     height: 360px;
 
-    
     position: relative;
 }
 
@@ -252,10 +251,6 @@
     background-color: #9575cd;
 }
 
-.aboutAnime{
-    display: none;
-}
-
 .animeDescText{
     padding: 12px 18px;
     color: #bfbfbf;
@@ -271,11 +266,15 @@
     gap: 1rem;
 }
 
-.sortButtons svg, span{
+.sortButtons svg{
     color: #b0b3b8;
 }
 
-.sortButtons button{
+.sortButtonText{
+    color: #b0b3b8;
+}
+
+.sortButton{
     display: flex;
     align-items: center;
     gap: .35rem;
@@ -287,12 +286,57 @@
     transition: all 300ms ease;
 }
 
-.sortButtons button:hover{
+.sortButton:hover{
     background-color: #2b2b2b;
     transition: all 300ms ease;
 }
 
-.sortButtons button span{
+.sortButtonText{
     font-size: 14px;
     line-height: 30px;
+}
+
+
+/* =============MODAL============= */
+.settingsModalWrapper{
+    max-width: 450px;
+
+    margin: auto;
+    border-radius: 6px;
+    background-color: #1c1c1c;
+}
+
+.settingsModalHeader{
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+}
+
+.settingsModalHeader span{
+    font-size: 16px;
+    font-weight: 500;
+    color: #bfbfbf;
+}
+
+.settingsModalFilters{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+    padding-bottom: 14px;
+}
+
+.settingsModalFilter{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    
+    border-bottom: 1px solid rgba(84, 84, 88, .65);
+
+    color: #bfbfbf;
+
+    padding: 14px 5px;
+
 }

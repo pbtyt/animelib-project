@@ -17,6 +17,8 @@
 
 .input::placeholder{
     font-weight: 500;
+
+    user-select: none;
 }
 
 .inputWrapper:focus-within{

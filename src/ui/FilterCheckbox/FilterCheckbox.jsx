@@ -3,9 +3,9 @@ import styles from './FilterCheckbox.module.css'
 
 import { Check } from 'lucide-react'
 
-const FilterCheckbox = ({ checkboxText = "" }) => {
+const FilterCheckbox = ({ checkboxText = "", defaultValue = false }) => {
 
-    const [isCheck, setIsCheck] = useState(false);
+    const [isCheck, setIsCheck] = useState(defaultValue);
 
     return (
         <button className={styles.checkboxWrapper} onClick={()=>setIsCheck(prev => !prev)}>
