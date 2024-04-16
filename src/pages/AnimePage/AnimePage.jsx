@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styles from './AnimePage.module.css'
 
 import { Play, CirclePlay, Plus, ChevronDown, Star, ArrowUpDown, SlidersHorizontal, X } from 'lucide-react'
@@ -11,12 +11,19 @@ import DropDownItem from '../../ui/DropDownItem/DropDownItem'
 import ModalBase from '../../components/ModalBase/ModalBase'
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox'
 import Comment from '../../components/Comment/Comment'
+import { animeService } from '../../services/anime.service'
 
 const AnimePage = () => {
   const { showModal } = useModal();
   const modalRef = useRef(null);
 
   const [activeTab, setActiveTab] = useState(2);
+
+  const [animeData, setAnimeData] = useState({});
+
+  useEffect( ()=>{
+    animeService.getAnimeTitleById(2).then( (data)=>setAnimeData(data) ).catch(er => console.error(er))
+  }, [] )
 
   return (
     <div className={styles.container}>
@@ -27,7 +34,7 @@ const AnimePage = () => {
       <div className={styles.content}>
         <div className={styles.info}>
           <div className={styles.poster}>
-            <img src="./posters/jujutsu-kaisen.jpg" alt="poster" />
+            <img src={animeData?.cover?.default} alt="poster" />
           </div>
 
           <button className={styles.playButton}>
@@ -36,7 +43,9 @@ const AnimePage = () => {
               Начать смотреть
             </span>
             <div style={{ flexGrow: '1' }}></div>
-            <span className={styles.epCount}>0 / 24</span>
+            <span className={styles.epCount}>
+              0 / {animeData?.episodes_count?.total}
+            </span>
           </button>
 
           <div className={styles.planButtons}>
@@ -57,7 +66,7 @@ const AnimePage = () => {
                 Тип
               </span>
               <span className={styles.footerItemInfo}>
-                TV сериалы
+                {animeData?.type}
               </span>
             </div>
 
@@ -66,7 +75,7 @@ const AnimePage = () => {
                 Выпуск
               </span>
               <span className={styles.footerItemInfo}>
-                03 октября 2020 г.
+                {animeData?.release_date}
               </span>
             </div>
 
@@ -75,7 +84,7 @@ const AnimePage = () => {
                 Эпизоды
               </span>
               <span className={styles.footerItemInfo}>
-                24 из 24
+                {animeData?.episodes_count?.uploaded} из {animeData?.episodes_count?.total}
               </span>
             </div>
 
@@ -84,7 +93,7 @@ const AnimePage = () => {
                 Статус
               </span>
               <span className={styles.footerItemInfo}>
-                Завершён
+                {animeData?.status}
               </span>
             </div>
 
@@ -113,16 +122,18 @@ const AnimePage = () => {
           <div className={styles.titlesNRating}>
             <div className={styles.titles}>
               <span className={styles.ruTitle}>
-                Магическая битва
+                {animeData?.titles?.ru}
               </span>
               <span className={styles.engTitle}>
-                Jujutsu Kaisen
+                {animeData?.titles?.eng}
               </span>
             </div>
             <div style={{ flexGrow: '1' }}></div>
             <div className={styles.rating}>
               <Star strokeWidth={3} color='#ffb656' size={20} />
-              <span className={styles.ratingText}>9.31</span>
+              <span className={styles.ratingText}>
+                {animeData?.rating}
+              </span>
               <span className={styles.ratingCount}>3K</span>
             </div>
           </div>
@@ -154,8 +165,7 @@ const AnimePage = () => {
               activeTab === 1 &&
               <div className={styles.aboutAnime}>
                 <p className={styles.animeDescText}>
-                  Действие аниме происходит в мире, где люди оказались вовсе не последним звеном в пищевой цепочке и любой ничего не подозревающий обыватель при известной доле невезения может оказаться съеденным демоном. Пускай люди в большинстве своём не знают о существовании демонов, те имеют уже давнюю историю, одним из эпизодов которой являются деяния легендарного демона Рёмэна Сукуны, которого с большим трудом удалось одолеть. Его тело было поделено на части, которые оказались разбросаны по миру. Если найдётся демон, который поглотит все фрагменты его плоти, то он обретёт мощь, способную уничтожить человеческую цивилизацию.
-                  Вот такая сложилась ситуация в мире, где в полном неведении о нависшей над человечеством угрозе проживает старшеклассник Юдзи Итадори. У Юдзи совершенно иные заботы. Он каждый день навещает в больнице дедушку и отбрыкивается от спортивных кружков, которые мечтают заполучить его из-за выдающейся физической силы и выносливости. Юдзи предпочёл вступить в клуб оккультных наук, с которого и начинаются все неприятности, когда в руки членов клуба попадает предмет, на который наложено проклятье. Не долго думая, школьники разбивают запечатывающее заклинание и выпускают на свет ужасные силы...
+                  {animeData?.description}
                 </p>
               </div>
             }
