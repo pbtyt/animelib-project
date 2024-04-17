@@ -11,18 +11,22 @@ import DropDownItem from '../../ui/DropDownItem/DropDownItem'
 import ModalBase from '../../components/ModalBase/ModalBase'
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox'
 import Comment from '../../components/Comment/Comment'
+
+import { useSearchParams } from 'react-router-dom'
 import { animeService } from '../../services/anime.service'
 
 const AnimePage = () => {
   const { showModal } = useModal();
   const modalRef = useRef(null);
 
-  const [activeTab, setActiveTab] = useState(2);
+  const [activeTab, setActiveTab] = useState(1);
 
   const [animeData, setAnimeData] = useState({});
-
+  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const animeID = searchParams.get("id") || ""
   useEffect( ()=>{
-    animeService.getAnimeTitleById(2).then( (data)=>setAnimeData(data) ).catch(er => console.error(er))
+    animeService.getAnimeTitleById( parseInt(animeID) ).then( (data)=>setAnimeData(data) ).catch(er => console.error(er))
   }, [] )
 
   return (

@@ -22,7 +22,7 @@ class AnimeService{
         const data = await response.json();
 
         return data;
-    }   
+    }
 }
 
 export const animeService = new AnimeService()

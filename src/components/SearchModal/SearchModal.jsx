@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Search } from 'lucide-react'
 
 import styles from './SearchModal.module.css'
@@ -28,7 +28,10 @@ const SearchModal = () => {
                         // поменять на real-time поиск...
                         onKeyDown={event => {
                             if (event.key === "Enter")
+                            {
                                 setSearchQuery(event.target.value)
+                                useNavigate(`/anime?id=1`)
+                            }
                         }}
                     />
                 </div>

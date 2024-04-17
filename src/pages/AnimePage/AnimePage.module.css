@@ -6,7 +6,7 @@
     flex-direction: column;
     gap: 1rem;
 
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
 }
 
 .animeBg{

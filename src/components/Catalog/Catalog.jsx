@@ -19,6 +19,7 @@ const Catalog = () => {
       {
         animeTitles?.map(
           (anime_data, index) => <CatalogCard
+            id={anime_data.id}
             title={anime_data.titles.ru}
             type={anime_data.type}
             rating={anime_data.rating}

@@ -26,6 +26,7 @@
 
     z-index: 99;
     position: absolute;
+    top: 0;
     left: 0;
     /* transform: translateX(161px); */
     
