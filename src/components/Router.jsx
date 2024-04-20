@@ -13,7 +13,7 @@ const Router = () => {
     <Route path='/' element={ <Layout/> }>
         <Route index element={ <HomePage/> }/>
         <Route path='catalog' element={ <CatalogPage/> } />
-        <Route path='anime' element={ <AnimePage/> } />
+        <Route path='anime/:id' element={ <AnimePage/> } />
     </Route>
   </Routes>
   </BrowserRouter>

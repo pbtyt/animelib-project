@@ -1,9 +1,16 @@
 import React from 'react'
 import styles from './SearchModalItem.module.css'
 
+import { Link } from 'react-router-dom'
+import useModal from '../../hooks/useModal'
+
 const SearchModalItem = ({ data = {} }) => {
+    const {hideModal} = useModal();
     return (
-        <div className={styles.smItem}>
+        <Link className={styles.smItem}
+            to={`anime/${data.id}`}
+            onClick={()=>hideModal()}
+        >
             <img src={data.cover.thumbnail} alt="poster" className={styles.smPoster} />
 
             <div className={styles.smInfo}>
@@ -22,7 +29,7 @@ const SearchModalItem = ({ data = {} }) => {
                     </span>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

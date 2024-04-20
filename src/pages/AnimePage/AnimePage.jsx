@@ -12,7 +12,7 @@ import ModalBase from '../../components/ModalBase/ModalBase'
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox'
 import Comment from '../../components/Comment/Comment'
 
-import { useSearchParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { animeService } from '../../services/anime.service'
 
 const AnimePage = () => {
@@ -22,17 +22,18 @@ const AnimePage = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   const [animeData, setAnimeData] = useState({});
+
+  const {id} = useParams();
   
-  const [searchParams, setSearchParams] = useSearchParams();
-  const animeID = searchParams.get("id") || ""
   useEffect( ()=>{
-    animeService.getAnimeTitleById( parseInt(animeID) ).then( (data)=>setAnimeData(data) ).catch(er => console.error(er))
-  }, [] )
+    animeService.getAnimeTitleById( parseInt(id) ).then( (data)=>setAnimeData(data) ).catch(er => console.error(er))
+  }, [id] )
 
   return (
     <div className={styles.container}>
+      
       <div className={styles.animeBg}>
-        <img src="jjk-bg.jpg" alt="title bg" />
+        <img src={animeData?.background_url} alt="title bg" />
       </div>
 
       <div className={styles.content}>

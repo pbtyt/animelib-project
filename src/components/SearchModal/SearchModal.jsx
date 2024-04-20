@@ -16,7 +16,7 @@ const SearchModal = () => {
 
     useEffect(() => {
         animeService.searchTitle(searchQuery)
-            .then(data => setAnimeTitles(data.map(el => el[0])))
+            .then(data => setAnimeTitles(data))
     }, [searchQuery])
 
     return (
@@ -30,7 +30,6 @@ const SearchModal = () => {
                             if (event.key === "Enter")
                             {
                                 setSearchQuery(event.target.value)
-                                useNavigate(`/anime?id=1`)
                             }
                         }}
                     />
