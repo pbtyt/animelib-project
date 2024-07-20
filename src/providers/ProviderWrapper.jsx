@@ -1,13 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import ModalProvider from './ModalProvider'
+import ModalProvider from './ModalProvider';
 
 const ProviderWrapper = ({ children }) => {
-    return (
-        <ModalProvider>
-            {children}
-        </ModalProvider>
-    )
-}
+	return <ModalProvider>{children}</ModalProvider>;
+};
 
-export default ProviderWrapper
+export default ProviderWrapper;

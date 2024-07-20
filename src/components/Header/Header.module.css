@@ -1,52 +1,51 @@
-.headerWrapper{
-    display: grid;
-    align-items: center;
-    grid-template-columns: 252px 1fr 252px;
-    
-    padding: .507rem;
-    margin-bottom: 1rem;
+.headerWrapper {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 252px 1fr 252px;
 
-    background-color: #252527;
-    width: 100%;
+	padding: 0.5rem 7.5rem;
+	margin-bottom: 1rem;
+
+	background-color: #252527;
+	width: 100%;
 }
 
-.logoWrapper{
-    width: 252px;
+.logoWrapper {
+	width: 252px;
 }
 
-
-.headerButtons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
+.headerButtons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
 }
 
-.grid{
-    display: grid;
-    grid-template-columns: repeat(2, 200px);
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 200px);
 }
 
-.col{
-    border-right: solid 1px rgba(84, 84, 88, .65);
+.col {
+	border-right: solid 1px rgba(84, 84, 88, 0.65);
 }
 
-.buttonLogin{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .35rem;
+.buttonLogin {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35rem;
 }
 
-.buttonLogin{
-    background-color: #5e35b1;
-    padding: .3rem .65rem;
-    color: #fff;
-    font-size: 1em;
-    font-weight: 400;
-    height: 32px;
+.buttonLogin {
+	background-color: #5e35b1;
+	padding: 0.3rem 0.65rem;
+	color: #fff;
+	font-size: 1em;
+	font-weight: 400;
+	height: 32px;
 }
 
-.buttonLogin span{
-    line-height: 0;
+.buttonLogin span {
+	line-height: 0;
 }
