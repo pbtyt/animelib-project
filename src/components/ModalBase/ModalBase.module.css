@@ -1,16 +1,23 @@
-.modalWrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1231;
-    overflow: auto;
+.modalWrapper {
+	position: fixed;
+	top: 0;
+	z-index: 1231;
+	overflow: auto;
 
-    display: block;
+	display: block;
 
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 
-    background-color: rgba(0,0,0,.6);
+	background-color: rgba(0, 0, 0, 0.6);
 
-    display: flex;
+	display: flex;
+}
+
+.modalWrapper.left {
+	flex-direction: row;
+}
+
+.modalWrapper.right {
+	flex-direction: row-reverse;
 }

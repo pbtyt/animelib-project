@@ -271,11 +271,15 @@ const Header = () => {
 								text={''}
 							/>
 						}
-						topOffset='46'
+						topOffset='50'
 						leftOffset='-50'
 					>
 						<div style={{ width: '220px' }}>
-							<DropDownItem>
+							<DropDownItem
+								onClick={() => {
+									navigate('/profile');
+								}}
+							>
 								<div
 									style={{
 										display: 'flex',

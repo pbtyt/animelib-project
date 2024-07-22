@@ -1,27 +1,26 @@
-.inputWrapper{
-    border: 1px solid #3b3d45;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    
-    transition: border 400ms ease;
+.inputWrapper {
+	border: 1px solid #3b3d45;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 8px;
+
+	transition: border 400ms ease;
 }
 
-
-.input{
-    max-width: 100%;
-    flex-grow: 1;
-    font-size: 14px;
+.input {
+	max-width: 100%;
+	flex-grow: 1;
+	font-size: 14px;
 }
 
-.input::placeholder{
-    font-weight: 500;
-
-    user-select: none;
+.input::placeholder {
+	font-weight: 500;
+	user-select: none;
 }
 
-.inputWrapper:focus-within{
-    border: 1px solid #4b4d55;
-    transition: border 400ms ease;
+.inputWrapper:focus-within {
+	border: 1px solid #4b4d55;
+	transition: border 400ms ease;
 }

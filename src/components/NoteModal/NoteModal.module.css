@@ -1,0 +1,68 @@
+.modalContent {
+	width: 550px;
+	background-color: #1c1c1c;
+	padding: 18px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.titleWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	flex-grow: 1;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.animeCardWrapper {
+	background: #7474801a;
+	padding: 0.45rem;
+	border-radius: 6px;
+
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.animeCardInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+}
+
+.infoStatus {
+	color: #ff9b40;
+	font-size: 12px;
+}
+
+.infoTitle {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.infoNoteCount {
+	color: #ebebf580;
+	font-size: 12px;
+}
+
+.notesWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.note {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.note span {
+	font-size: 15px;
+	font-weight: 700;
+}

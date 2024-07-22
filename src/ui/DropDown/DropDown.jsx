@@ -4,10 +4,12 @@ import styles from './DropDown.module.css';
 import { ChevronDown } from 'lucide-react';
 
 const DropDown = ({
+	useTemplate = false,
+	template,
 	children,
 	dropDownTitle,
 	button,
-	minMenuWidth = '160',
+	minMenuWidth = '160px',
 	topOffset = '35',
 	leftOffset = '0',
 }) => {
@@ -15,7 +17,9 @@ const DropDown = ({
 
 	return (
 		<div className={styles.dropdown} onClick={() => setIsOpened(prev => !prev)}>
-			{!button ? (
+			{useTemplate ? (
+				template
+			) : !button ? (
 				<button className={styles.defaultButton}>
 					<span style={{ fontSize: '14px' }}>{dropDownTitle}</span>
 					<ChevronDown width={16} height={16} strokeWidth={1.8} />
@@ -27,7 +31,7 @@ const DropDown = ({
 			<ul
 				className={`${styles.choose} ${isOpened ? styles.opened : ''}`}
 				style={{
-					minWidth: `${minMenuWidth}px`,
+					minWidth: `${minMenuWidth}`,
 					top: `${topOffset}px`,
 					left: `${leftOffset}px`,
 				}}

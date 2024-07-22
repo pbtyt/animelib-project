@@ -1,0 +1,51 @@
+.cardWrapper {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.cardPoster {
+	border-radius: 8px;
+}
+
+.cardInfoWrapper {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.cardTitle {
+	font-weight: 500;
+	font-size: 17px;
+}
+
+.cardLastEpisode {
+	font-size: 14px;
+}
+
+.cardContinueEpisode {
+	font-size: 14px;
+	color: #ebebf580;
+}
+
+.addInfoWrapper {
+	flex-grow: 0.3;
+	display: flex;
+	flex-direction: column;
+}
+
+.addInfoWrapper > span {
+	font-size: 14px;
+}
+
+.addInfoWrapper span:nth-child(1) {
+	color: #ebebf580;
+}
+
+.buttonsWrapper {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	gap: 0.4rem;
+}
