@@ -1,19 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 
-import { Outlet } from 'react-router-dom'
-import Header from './Header/Header'
+import { Outlet } from 'react-router-dom';
+import Header from './Header/Header';
 
-import { ModalContext } from '../providers/ModalProvider'
+import { ModalContext } from '../providers/ModalProvider';
 
 const Layout = () => {
-  const { activeModal } = useContext(ModalContext);
-  return (
-    <>
-      <Header />
-      <Outlet />
-      {activeModal}
-    </>
-  )
-}
+	const { activeModal, activeModals } = useContext(ModalContext);
+	console.log(typeof activeModals);
+	return (
+		<>
+			<Header />
+			<Outlet />
+			{/* {activeModal} */}
+			{activeModals.map((modal, index) => (
+				<div key={index}>{modal}</div>
+			))}
+		</>
+	);
+};
 
-export default Layout
+export default Layout;

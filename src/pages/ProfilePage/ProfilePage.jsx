@@ -6,11 +6,12 @@ import { LayoutGrid, List, Settings } from 'lucide-react';
 import ProfileListAnimeCardItem from '../../components/ProfileListAnimeCardItem/ProfileListAnimeCardItem';
 
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
+import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
+
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
 import TProfilePageFilterSectionItem from '../../templates/TProfilePageFilterSectionItem';
-import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
 
 const ProfilePage = () => {
 	return (

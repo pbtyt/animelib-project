@@ -1,0 +1,10 @@
+.note {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+.note span {
+	font-size: 15px;
+	font-weight: 700;
+}

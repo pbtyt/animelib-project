@@ -1,0 +1,27 @@
+.modalContent {
+	width: 500px;
+	margin: 0 auto;
+	margin-bottom: 10rem;
+	border-radius: 6px;
+	background-color: #1c1c1c;
+	/* padding: 18px; */
+
+	align-self: center;
+
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.titleWrapper {
+	padding: 15px;
+	padding-bottom: 0;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	flex-grow: 1;
+	font-size: 18px;
+	font-weight: 500;
+}

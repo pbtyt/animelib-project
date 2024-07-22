@@ -4,17 +4,27 @@ import { ModalContext } from '../providers/ModalProvider';
 import { toggleBodyOverflow } from '../utils/toggleBodyOverflow';
 
 const useModal = () => {
-	const { setActiveModal } = useContext(ModalContext);
+	const { setActiveModal, activeModals, setActiveModals } =
+		useContext(ModalContext);
 	const showModal = useCallback(modalElement => {
 		console.warn('[useModal]: re-render showModal');
 		toggleBodyOverflow(false);
-		setActiveModal(modalElement);
+
+		// setActiveModal(modalElement);
+
+		//Note: Performance??
+		setActiveModals([...activeModals, modalElement]);
 	}, []);
 
 	const hideModal = useCallback(() => {
 		console.warn('[useModal]: re-render hideModal');
-		toggleBodyOverflow(true);
-		setActiveModal();
+		console.log(activeModals.length);
+		if (activeModals.length === 1) toggleBodyOverflow(true);
+		// setActiveModal();
+
+		//Note: Performance??
+		activeModals.pop();
+		setActiveModals([...activeModals]);
 	}, []);
 
 	return { showModal, hideModal };

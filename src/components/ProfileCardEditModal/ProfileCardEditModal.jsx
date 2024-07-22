@@ -7,15 +7,16 @@ import ModalBase from '../ModalBase/ModalBase';
 import DropDown from '../../ui/DropDown/DropDown';
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 
+import Button from '../../ui/Button/Button';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
 import { ChevronDown, Save, Star, Trash, X } from 'lucide-react';
-import Button from '../../ui/Button/Button';
+import GradeModal from '../GradeModal/GradeModal';
 
 const ProfileCardEditModal = () => {
 	const contentRef = useRef(null);
-	const { hideModal } = useModal();
+	const { hideModal, showModal } = useModal();
 	return (
 		<ModalBase contentRef={contentRef}>
 			<div className={styles.modalContent} ref={contentRef}>
@@ -34,7 +35,7 @@ const ProfileCardEditModal = () => {
 					</span>
 					<div style={{ flexGrow: '1' }}></div>
 
-					<Button styleIndex={0}>
+					<Button styleIndex={0} onClick={() => showModal(<GradeModal />)}>
 						<Star size={16} color='#bfbfbf' strokeWidth={1} />
 						<span>Оценить</span>
 					</Button>

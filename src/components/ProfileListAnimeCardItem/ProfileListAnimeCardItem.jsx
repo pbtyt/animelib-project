@@ -24,7 +24,7 @@ const ProfileListAnimeCardItem = () => {
 				<div>
 					<span className={styles.cardLastEpisode}>Последняя серия 24</span>
 				</div>
-				<span className={styles.cardContinueEpisode}>Продолжить 12/24</span>
+				<span className={styles.cardContinueEpisode}>Продолжить 12 / 24</span>
 			</div>
 			<div className={styles.addInfoWrapper}>
 				<span>Добавлено</span>

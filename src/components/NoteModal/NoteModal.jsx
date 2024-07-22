@@ -2,14 +2,17 @@ import React, { useRef } from 'react';
 
 import styles from './NoteModal.module.css';
 
+import { X } from 'lucide-react';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
+
+import useModal from '../../hooks/useModal';
 import ModalBase from '../ModalBase/ModalBase';
 
-import { ChevronDown, Edit2, X } from 'lucide-react';
-import Button from '../../ui/Button/Button';
+import NoteItem from '../NoteItem/NoteItem';
 
 const NoteModal = () => {
 	const contentRef = useRef(null);
+	const { hideModal } = useModal();
 	return (
 		<ModalBase contentRef={contentRef} attachmentPos='right'>
 			<div className={styles.modalContent} ref={contentRef}>
@@ -39,47 +42,9 @@ const NoteModal = () => {
 				</div>
 
 				<div className={styles.notesWrapper}>
-					<div className={styles.note}>
-						<Edit2 color='#ebebf580' width={14} height={14} strokeWidth={3} />
-						<span>Том 4 Глава 3</span>
-						<div style={{ flexGrow: '1' }}></div>
-						<Button
-							styleIndex={0}
-							additionalStyles={{
-								backgroundColor: 'transparent',
-								gap: '1rem',
-							}}
-						>
-							1
-							<ChevronDown
-								color='#bfbfbf'
-								width={14}
-								height={14}
-								strokeWidth={2}
-							/>
-						</Button>
-					</div>
-
-					<div className={styles.note}>
-						<Edit2 color='#ebebf580' width={14} height={14} strokeWidth={3} />
-						<span>Том 4 Глава 6</span>
-						<div style={{ flexGrow: '1' }}></div>
-						<Button
-							styleIndex={0}
-							additionalStyles={{
-								backgroundColor: 'transparent',
-								gap: '1rem',
-							}}
-						>
-							1
-							<ChevronDown
-								color='#bfbfbf'
-								width={14}
-								height={14}
-								strokeWidth={2}
-							/>
-						</Button>
-					</div>
+					<NoteItem />
+					<NoteItem />
+					<NoteItem />
 				</div>
 			</div>
 		</ModalBase>

@@ -1,0 +1,45 @@
+.noteEdit {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #545458a6;
+	border-radius: 6px;
+}
+
+.noteEditHeader {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	background-color: #7474801a;
+	padding-left: 12px;
+}
+
+.noteEdit textarea {
+	padding: 12px;
+	background: transparent;
+	border: none;
+	color: #bfbfbf;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 20px;
+	font-family: inherit;
+}
+
+.noteEdit textarea:focus,
+.noteEdit textarea:hover {
+	border: none;
+	outline: none;
+}
+
+.charCountWrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+	padding: 12px;
+	padding-top: 0px;
+}
+
+.charCountWrapper > * {
+	color: #ebebf580;
+	font-size: 12px;
+	font-weight: 400;
+}

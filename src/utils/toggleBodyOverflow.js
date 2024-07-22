@@ -1,5 +1,9 @@
 export const toggleBodyOverflow = (isNeedToVisible = true) => {
 	console.warn(`[ToggleBodyOverflow]: re-render`);
-	if (isNeedToVisible) document.getElementById('body').classList.remove('of-h');
-	else document.getElementById('body').classList.add('of-h');
+	const bodyElement = document.getElementById('body');
+
+	if (bodyElement.classList.contains('of-h') && !isNeedToVisible) return;
+
+	if (isNeedToVisible) bodyElement.classList.remove('of-h');
+	else bodyElement.classList.add('of-h');
 };
