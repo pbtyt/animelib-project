@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './ProfileCardEditModal.module.css';
 
 import useModal from '../../hooks/useModal';
@@ -11,12 +11,14 @@ import Button from '../../ui/Button/Button';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
-import { ChevronDown, Save, Star, Trash, X } from 'lucide-react';
+import { ChevronDown, Minus, Plus, Save, Star, Trash, X } from 'lucide-react';
 import GradeModal from '../GradeModal/GradeModal';
 
 const ProfileCardEditModal = () => {
 	const contentRef = useRef(null);
 	const { hideModal, showModal } = useModal();
+
+	const [num, setNum] = useState(0);
 	return (
 		<ModalBase contentRef={contentRef}>
 			<div className={styles.modalContent} ref={contentRef}>
@@ -43,6 +45,51 @@ const ProfileCardEditModal = () => {
 				<div style={{ display: 'flex', flexDirection: 'column', gap: '.3rem' }}>
 					<span className={styles.subTitle}>Комментарий</span>
 					<Input icon={<></>} placeholder='' />
+				</div>
+				<div style={{ display: 'flex', flexDirection: 'column', gap: '.3rem' }}>
+					<span className={styles.subTitle}>Количество прочтений</span>
+					<div style={{ display: 'flex' }}>
+						<Input
+							icon={<></>}
+							minValue='0'
+							inputmode='numeric'
+							placeholder='Введите число'
+							type='number'
+							isReadonly={true}
+							oInputValue={num}
+							additionalStyles={{
+								flexGrow: '1',
+								borderRight: 'none',
+								borderTopRightRadius: '0px',
+								borderBottomRightRadius: '0px',
+							}}
+						/>
+						<Button
+							styleIndex={0}
+							additionalStyles={{
+								flexGrow: '.05',
+								borderTopRightRadius: '0px',
+								borderBottomRightRadius: '0px',
+								borderTopLeftRadius: '0px',
+								borderBottomLeftRadius: '0px',
+								borderRight: 'none',
+							}}
+							onClick={() => setNum(prev => prev + 1)}
+						>
+							<Plus color='#bfbfbf' width={12} height={12} strokeWidth={3} />
+						</Button>
+						<Button
+							styleIndex={0}
+							additionalStyles={{
+								flexGrow: '.05',
+								borderTopLeftRadius: '0px',
+								borderBottomLeftRadius: '0px',
+							}}
+							onClick={() => setNum(prev => Math.max(0, prev - 1))}
+						>
+							<Minus color='#bfbfbf' width={12} height={12} strokeWidth={3} />
+						</Button>
+					</div>
 				</div>
 				<div style={{ display: 'flex', flexDirection: 'column', gap: '.3rem' }}>
 					<span className={styles.subTitle}>Список</span>

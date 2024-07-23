@@ -28,6 +28,32 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 8px;
+
+	position: relative;
+}
+
+.userStatus {
+	display: none;
+
+	width: 14px;
+	height: 14px;
+
+	border: 2px solid #1c1c1c;
+	border-radius: 50%;
+
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}
+
+.userStatus.online {
+	display: block;
+	background: #4baf50;
+}
+
+.userStatus.offline {
+	display: block;
+	background: #de7072;
 }
 
 .userName {
@@ -123,19 +149,25 @@
 	background-color: #1c1c1c;
 }
 
-.cardsWrapper > * {
+.cardsWrapper.listView > * {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #545458a6;
 }
 
-.cardsWrapper > *:last-child {
+.cardsWrapper.listView > *:last-child {
 	padding-bottom: 0px;
 	border-bottom: 0px;
 }
 
-.cardsWrapper > *:first-child {
+.cardsWrapper.listView > *:first-child {
 	padding-top: 0px;
+}
+
+.cardsWrapper.gridView {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 16px;
 }
 
 .content {

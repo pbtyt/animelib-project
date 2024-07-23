@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Star } from 'lucide-react';
 
-const Start = ({ stared = false, index }) => {
+const Start = ({ stared = false, index, onClick = () => {} }) => {
 	// #ebebf580
 	return (
 		<Star
@@ -10,7 +10,8 @@ const Start = ({ stared = false, index }) => {
 			strokeWidth={0}
 			width={34}
 			height={34}
-			style={{ flexGrow: '1' }}
+			style={{ flexGrow: '1', cursor: 'pointer' }}
+			onClick={() => onClick()}
 		/>
 	);
 };

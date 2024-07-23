@@ -10,7 +10,8 @@ const Input = ({
 	inputmode = '',
 	minValue = '',
 	maxValue = '',
-	padding = '8',
+	isReadonly = false,
+	oInputValue = '',
 	icon = null,
 }) => {
 	const [inputValue, setInputValue] = useState('');
@@ -28,11 +29,12 @@ const Input = ({
 				placeholder={placeholder}
 				min={minValue}
 				max={maxValue}
-				value={inputValue}
+				value={oInputValue === '' ? inputValue : oInputValue}
 				className={styles.input}
 				onChange={event => {
 					setInputValue(event.target.value);
 				}}
+				readOnly={isReadonly}
 			/>
 			{inputValue.length > 0 ? (
 				<X

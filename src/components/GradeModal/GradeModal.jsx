@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './GradeModal.module.css';
 
 import useModal from '../../hooks/useModal';
@@ -13,6 +13,12 @@ import Start from './Star';
 const GradeModal = () => {
 	const contentRef = useRef(null);
 	const { hideModal } = useModal();
+
+	const [clickedStarIndex, setClickedStarIndex] = useState(0);
+	const [grade, setGrade] = useState(0);
+
+	useEffect(() => {}, [clickedStarIndex]);
+
 	return (
 		<ModalBase contentRef={contentRef}>
 			<div className={styles.modalContent} ref={contentRef}>
@@ -34,7 +40,11 @@ const GradeModal = () => {
 						fontSize: '12px',
 					}}
 				>
-					<span>Поставьте оценку</span>
+					{grade === 0 ? (
+						<span>Поставьте оценку</span>
+					) : (
+						<span style={{ color: '#fff', fontSize: '27px' }}>{grade}</span>
+					)}
 				</div>
 
 				<div
@@ -45,7 +55,15 @@ const GradeModal = () => {
 					}}
 				>
 					{[...new Array(10)].map((_, index) => (
-						<Start index={index} key={index} />
+						<Start
+							stared={index <= clickedStarIndex && grade != 0}
+							index={index}
+							key={index}
+							onClick={() => {
+								setClickedStarIndex(index);
+								setGrade(index + 1);
+							}}
+						/>
 					))}
 				</div>
 
@@ -77,6 +95,9 @@ const GradeModal = () => {
 							fontWeight: '500',
 							flexGrow: '1',
 							justifyContent: 'center',
+						}}
+						onClick={() => {
+							hideModal();
 						}}
 					>
 						<span>Оценить</span>

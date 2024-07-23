@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ProfilePage.module.css';
 
 import { LayoutGrid, List, Settings } from 'lucide-react';
-
-import ProfileListAnimeCardItem from '../../components/ProfileListAnimeCardItem/ProfileListAnimeCardItem';
 
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
@@ -11,20 +9,25 @@ import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
+import ProfileGridAnimeCardItem from '../../components/ProfileGridAnimeCardItem/ProfileGridAnimeCardItem';
+import ProfileListAnimeCardItem from '../../components/ProfileListAnimeCardItem/ProfileListAnimeCardItem';
 import TProfilePageFilterSectionItem from '../../templates/TProfilePageFilterSectionItem';
 
 const ProfilePage = () => {
+	const [view, setView] = useState('grid');
 	return (
 		<div className={styles.container}>
 			<div className={styles.profilePageHeader}>
 				<div className={styles.profileInfo}>
-					<div className={styles.userIcon}></div>
+					<div className={styles.userIcon}>
+						<div className={`${styles.userStatus} ${styles.online}`}></div>
+					</div>
 
 					<div
 						style={{ display: 'flex', flexDirection: 'column', gap: '.1rem' }}
 					>
 						<span className={styles.userName}>blad3</span>
-						<span className={styles.userLevel}>Уровень 8</span>
+						<span className={styles.userLevel}>Уровень 999</span>
 					</div>
 
 					<div style={{ flexGrow: '1' }}></div>
@@ -120,7 +123,10 @@ const ProfilePage = () => {
 									/>
 								}
 								text='Список'
-								isSelect={true}
+								onClick={() => {
+									setView('list');
+								}}
+								isSelect={view === 'list'}
 							/>
 							<DropDownItem
 								icon={
@@ -132,6 +138,10 @@ const ProfilePage = () => {
 									/>
 								}
 								text='Плитка'
+								onClick={() => {
+									setView('grid');
+								}}
+								isSelect={view === 'grid'}
 							/>
 						</div>
 					</div>
@@ -167,10 +177,24 @@ const ProfilePage = () => {
 						additionalStyles={{ backgroundColor: '#1c1c1c', padding: '12px' }}
 					/>
 
-					<div className={styles.cardsWrapper}>
-						<ProfileListAnimeCardItem />
-						<ProfileListAnimeCardItem />
-						<ProfileListAnimeCardItem />
+					<div
+						className={`${styles.cardsWrapper} ${
+							view === 'list' ? styles.listView : styles.gridView
+						}`}
+					>
+						{view === 'list' ? (
+							<>
+								<ProfileListAnimeCardItem />
+								<ProfileListAnimeCardItem />
+								<ProfileListAnimeCardItem />
+							</>
+						) : (
+							<>
+								<ProfileGridAnimeCardItem />
+								<ProfileGridAnimeCardItem />
+								<ProfileGridAnimeCardItem />
+							</>
+						)}
 					</div>
 				</div>
 			</div>

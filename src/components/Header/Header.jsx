@@ -279,6 +279,7 @@ const Header = () => {
 								onClick={() => {
 									navigate('/profile');
 								}}
+								isSelect={true}
 							>
 								<div
 									style={{
