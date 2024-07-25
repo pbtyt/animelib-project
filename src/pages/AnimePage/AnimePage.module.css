@@ -1,343 +1,342 @@
-.container{
-    min-width: 1200px;
-    align-self: center;
-    max-width: 1280px;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.container {
+	min-width: 1280px;
+	max-width: 1280px;
+	align-self: center;
 
-    margin: 0 auto 1rem auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	margin: 0 auto 1rem auto;
 }
 
-.animeBg{
-    width: 100%;
-    height: 360px;
+.animeBg {
+	width: 100%;
+	height: 360px;
 
-    position: relative;
+	position: relative;
 }
 
-.animeBg img{
-    width: 100%;
-    height: 100%;
-    display: block;
-    
-    object-fit: cover;
-    object-position: center;
+.animeBg img {
+	width: 100%;
+	height: 100%;
+	display: block;
 
-    border-radius: 6px;
+	object-fit: cover;
+	object-position: center;
+
+	border-radius: 6px;
 }
 
-.animeBg::before{
-    content: "";
-    
-    position: absolute;
-    z-index: 9;
-    width: 100%;
-    height: 100%;
+.animeBg::before {
+	content: '';
 
-    top: 0;
-    left: 0;
+	position: absolute;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
 
-    background: linear-gradient(to top,rgba(0,0,0,.6),transparent 180px),rgba(0,0,0,.2);
+	top: 0;
+	left: 0;
+
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 180px),
+		rgba(0, 0, 0, 0.2);
 }
 
-.content{
-    z-index: 9;
+.content {
+	z-index: 9;
 
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 2rem;
+	display: grid;
+	grid-template-columns: 260px 1fr;
+	gap: 2rem;
 
-    margin-top: -5rem;
+	margin-top: -5rem;
 }
 
-.info{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
-.poster img{
-    width: 100%;
-    border-radius: 8px;
+.poster img {
+	width: 100%;
+	border-radius: 8px;
 }
 
-.playButton{
-    height: 32px;
-    line-height: 30px;
-    color: white;
-    background-color: #5e35b1;
+.playButton {
+	height: 32px;
+	line-height: 30px;
+	color: white;
+	background-color: #5e35b1;
 
-    display: flex;
-    align-items: center;
-    gap: .45rem;
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
 
-    padding: 3px 10px;
+	padding: 3px 10px;
 }
 
-.startWatch{
-    font-weight: 400;
-    font-size: 15px;
+.startWatch {
+	font-weight: 400;
+	font-size: 15px;
 }
 
-.epCount{
-    font-size: 10px;
-    letter-spacing: -.3px;
-    opacity: .7;
-    font-weight: 500;
-    color: #fff;
-    line-height: 32px;
+.epCount {
+	font-size: 10px;
+	letter-spacing: -0.3px;
+	opacity: 0.7;
+	font-weight: 500;
+	color: #fff;
+	line-height: 32px;
 }
 
-.planButtons{
-    display: flex;
+.planButtons {
+	display: flex;
 }
 
-.addToPlans{
-    display: flex;
-    flex-grow: 1;
-    gap: .35rem;
-    align-items: center;
+.addToPlans {
+	display: flex;
+	flex-grow: 1;
+	gap: 0.35rem;
+	align-items: center;
 
-    border-radius: 6px;
-    border: 1px solid #3A3A40;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    background-color: #2C2C30;
-    padding: 0 14px;
-    line-height: 30px;
+	border-radius: 6px;
+	border: 1px solid #3a3a40;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	background-color: #2c2c30;
+	padding: 0 14px;
+	line-height: 30px;
 }
 
-.planBtnText{
-    color: #bfbfbf;
-    font-size: 15px;
+.planBtnText {
+	color: #bfbfbf;
+	font-size: 15px;
 }
 
-.chevron{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.chevron {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: #2C2C30;
-    border: 1px solid #3A3A40;
-    border-left: 0;
-    padding: 0 6px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	background-color: #2c2c30;
+	border: 1px solid #3a3a40;
+	border-left: 0;
+	padding: 0 6px;
 }
 
-.animeInfo{
-    background-color: #1c1c1c;
-    border-radius: 6px;
-    padding: 8px;
+.animeInfo {
+	background-color: #1c1c1c;
+	border-radius: 6px;
+	padding: 8px;
 }
 
-.animeInfoItem{
-    padding: 6px 10px;
+.animeInfoItem {
+	padding: 6px 10px;
 
-    display: flex;
-    flex-direction: column;
-    gap: .15rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
 
-    border-radius: 6px;
+	border-radius: 6px;
 
-    transition: all 300ms ease;
+	transition: all 300ms ease;
 }
 
-.animeInfoItem:hover{
-    background-color: rgba(116, 116, 128, .1);
-    transition: all 300ms ease;
+.animeInfoItem:hover {
+	background-color: rgba(116, 116, 128, 0.1);
+	transition: all 300ms ease;
 }
 
-.headerItemInfo{
-    color: rgba(235, 235, 245, .5);
-    font-size: 13px;
+.headerItemInfo {
+	color: rgba(235, 235, 245, 0.5);
+	font-size: 13px;
 }
 
-.footerItemInfo{
-    color: #bfbfbf;
-    font-size: 14px;
+.footerItemInfo {
+	color: #bfbfbf;
+	font-size: 14px;
 }
 
-.desc{
-    display: flex;
-    flex-direction: column;
+.desc {
+	display: flex;
+	flex-direction: column;
 }
 
-.titlesNRating{
-    display: flex;
-    align-items: center;
+.titlesNRating {
+	display: flex;
+	align-items: center;
 
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
-.titles{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.titles {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
-.ruTitle{
-    font-size: 24px;
-    color: #fff;
-    font-weight: 500;
+.ruTitle {
+	font-size: 24px;
+	color: #fff;
+	font-weight: 500;
 }
 
-.engTitle{
-    color: #fff;
-    font-size: 18px;
+.engTitle {
+	color: #fff;
+	font-size: 18px;
 }
 
-.rating{
-    display: flex;
-    align-items: center;
-    gap: .4rem;
+.rating {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
 }
 
-.ratingText{
-    color: #fff;
-    font-weight: 500;
-    font-size: 20px;
+.ratingText {
+	color: #fff;
+	font-weight: 500;
+	font-size: 20px;
 }
 
-.ratingCount{
-    color: rgba(235, 235, 245, .5);
-    font-size: 16px;
+.ratingCount {
+	color: rgba(235, 235, 245, 0.5);
+	font-size: 16px;
 }
 
-.animeDesc{
-    background-color: #1c1c1c;
-    border-radius: 8px;
+.animeDesc {
+	background-color: #1c1c1c;
+	border-radius: 8px;
 }
 
-.tabs{
-    display: flex;
-    align-items: center;
-    gap: .75rem;
+.tabs {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
 
-    padding: 0 18px;
+	padding: 0 18px;
 
-    border-bottom: 1px solid rgba(84, 84, 88, .65);
+	border-bottom: 1px solid rgba(84, 84, 88, 0.65);
 }
 
-.tab{
-    padding: 12px 0;
-    position: relative;
+.tab {
+	padding: 12px 0;
+	position: relative;
 
-    cursor: pointer;
+	cursor: pointer;
 }
 
-.tabText{
-    font-size: 15px;
-    color: rgba(235, 235, 245, .5);
-    font-weight: 400;
+.tabText {
+	font-size: 15px;
+	color: rgba(235, 235, 245, 0.5);
+	font-weight: 400;
 }
 
-.tabText.isActive{
-    color: #bfbfbf;
+.tabText.isActive {
+	color: #bfbfbf;
 }
 
-.tabText.isActive::after{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.tabText.isActive::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 
-    width: 100%;
-    height: 3px;
+	width: 100%;
+	height: 3px;
 
-    border-radius: 3px 3px 0 0;
-    background-color: #9575cd;
+	border-radius: 3px 3px 0 0;
+	background-color: #9575cd;
 }
 
-.animeDescText{
-    padding: 12px 18px;
-    color: #bfbfbf;
-    font-size: 15px;
+.animeDescText {
+	padding: 12px 18px;
+	color: #bfbfbf;
+	font-size: 15px;
 }
 
-.comments{
-    padding: 12px 18px;
+.comments {
+	padding: 12px 18px;
 }
 
-.sortButtons{
-    display: flex;
-    gap: 1rem;
+.sortButtons {
+	display: flex;
+	gap: 1rem;
 }
 
-.sortButtons svg{
-    color: #b0b3b8;
+.sortButtons svg {
+	color: #b0b3b8;
 }
 
-.sortButtonText{
-    color: #b0b3b8;
+.sortButtonText {
+	color: #b0b3b8;
 }
 
-.sortButton{
-    display: flex;
-    align-items: center;
-    gap: .35rem;
+.sortButton {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
 
-    padding: 0 10px;
+	padding: 0 10px;
 
-    height: 26px;
+	height: 26px;
 
-    transition: all 300ms ease;
+	transition: all 300ms ease;
 }
 
-.sortButton:hover{
-    background-color: #2b2b2b;
-    transition: all 300ms ease;
+.sortButton:hover {
+	background-color: #2b2b2b;
+	transition: all 300ms ease;
 }
 
-.sortButtonText{
-    font-size: 14px;
-    line-height: 30px;
+.sortButtonText {
+	font-size: 14px;
+	line-height: 30px;
 }
-
 
 /* =============MODAL============= */
-.settingsModalWrapper{
-    max-width: 450px;
+.settingsModalWrapper {
+	max-width: 450px;
 
-    margin: auto;
-    border-radius: 6px;
-    background-color: #1c1c1c;
+	margin: auto;
+	border-radius: 6px;
+	background-color: #1c1c1c;
 }
 
-.settingsModalHeader{
-    display: flex;
-    align-items: center;
-    padding: 14px 20px;
+.settingsModalHeader {
+	display: flex;
+	align-items: center;
+	padding: 14px 20px;
 }
 
-.settingsModalHeader span{
-    font-size: 16px;
-    font-weight: 500;
-    color: #bfbfbf;
+.settingsModalHeader span {
+	font-size: 16px;
+	font-weight: 500;
+	color: #bfbfbf;
 }
 
-.settingsModalFilters{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 20px;
-    padding-bottom: 14px;
+.settingsModalFilters {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0 20px;
+	padding-bottom: 14px;
 }
 
-.settingsModalFilter{
-    width: 100%;
+.settingsModalFilter {
+	width: 100%;
 
-    display: flex;
-    align-items: center;
-    gap: .45rem;
-    
-    border-bottom: 1px solid rgba(84, 84, 88, .65);
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
 
-    color: #bfbfbf;
+	border-bottom: 1px solid rgba(84, 84, 88, 0.65);
 
-    padding: 14px 5px;
+	color: #bfbfbf;
 
+	padding: 14px 5px;
 }

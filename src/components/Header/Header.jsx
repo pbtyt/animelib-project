@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Header.module.css';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useModal from '../../hooks/useModal';
 
 import {
 	Bell,
 	BookHeart,
+	CheckCheck,
 	CircleUserRound,
 	Compass,
 	Ellipsis,
@@ -241,12 +242,135 @@ const Header = () => {
 						text={''}
 					/>
 
-					<HeaderButton
-						icon={
-							<Bell color='#bfbfbf' width={16} height={16} strokeWidth={3} />
-						}
-						text={''}
-					/>
+					<div style={{ position: 'relative' }}>
+						<DropDown
+							button={
+								<HeaderButton
+									icon={
+										<Bell
+											color='#bfbfbf'
+											width={16}
+											height={16}
+											strokeWidth={3}
+										/>
+									}
+									text={''}
+								/>
+							}
+							minMenuWidth='440px'
+							menuAdditionalStyles={{ padding: '.7rem', paddingBottom: '0' }}
+							leftOffset='-250'
+							topOffset='45'
+						>
+							<div
+								style={{
+									backgroundColor: '#303032',
+									display: 'flex',
+									flexDirection: 'column',
+									gap: '.6rem',
+								}}
+							>
+								<div style={{ display: 'flex', alignItems: 'center' }}>
+									<Settings
+										color='#bfbfbf'
+										width={16}
+										height={16}
+										strokeWidth={2}
+									/>
+									<span
+										style={{
+											flexGrow: '1',
+											textAlign: 'center',
+											fontWeight: '500',
+											fontSize: '15px',
+										}}
+									>
+										Уведомления
+									</span>
+									<CheckCheck
+										color='#bfbfbf'
+										width={16}
+										height={16}
+										strokeWidth={2}
+									/>
+								</div>
+								<div
+									style={{
+										height: '500px',
+										maxHeight: 'calc(100vh - 190px)',
+										overflow: 'hidden',
+									}}
+								>
+									<div
+										style={{
+											marginTop: '.5rem',
+											display: 'flex',
+											gap: '.8rem',
+											alignItems: 'center',
+										}}
+									>
+										<img
+											src='./posters/jujutsu-kaisen.jpg'
+											alt='poster'
+											width={50}
+											height={70}
+											style={{ borderRadius: '6px' }}
+										/>
+
+										<div style={{ display: 'flex', flexDirection: 'column' }}>
+											<span
+												style={{
+													fontSize: '13px',
+													fontWeight: '700',
+												}}
+											>
+												AnilibriaTV{' '}
+												<span
+													style={{
+														marginLeft: '.35rem',
+														fontSize: '12px',
+														fontWeight: '400',
+														color: '#ebebf580',
+													}}
+												>
+													11 часов назад
+												</span>
+											</span>
+											<span style={{ fontSize: '14px', lineHeight: '20px' }}>
+												Добавлена новая Серия 24
+											</span>
+											<span style={{ fontSize: '14px', lineHeight: '20px' }}>
+												В тайтле{' '}
+												<Link
+													to={'./'}
+													style={{
+														fontWeight: '500',
+														color: '#bfbfbf',
+														borderBottom: '1px solid #bfbfbf26',
+													}}
+												>
+													Магическая Битва
+												</Link>
+											</span>
+										</div>
+									</div>
+								</div>
+								<Link
+									style={{
+										cursor: 'pointer',
+										padding: '.5rem',
+										flexGrow: '1',
+										textAlign: 'center',
+										borderTop: '1px solid #545458a6',
+										color: '#8a8a8e',
+									}}
+								>
+									Показать все уведомления
+								</Link>
+							</div>
+						</DropDown>
+						<div className={styles.notificationCount}>1</div>
+					</div>
 
 					<div
 						style={{

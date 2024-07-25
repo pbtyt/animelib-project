@@ -12,6 +12,7 @@ const DropDown = ({
 	minMenuWidth = '160px',
 	topOffset = '35',
 	leftOffset = '0',
+	menuAdditionalStyles = {},
 }) => {
 	const [isOpened, setIsOpened] = useState(false);
 
@@ -34,6 +35,7 @@ const DropDown = ({
 					minWidth: `${minMenuWidth}`,
 					top: `${topOffset}px`,
 					left: `${leftOffset}px`,
+					...menuAdditionalStyles,
 				}}
 			>
 				{children}

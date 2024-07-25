@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './DropDownItem.module.css';
 
 const DropDownItem = ({
+	additionalStyles = {},
 	children,
 	text = 'default',
 	isSelect,
@@ -14,6 +15,7 @@ const DropDownItem = ({
 		!icon ? (
 			<li
 				className={`${styles.dropDownItem} ${isSelect ? styles.active : ''}`}
+				style={additionalStyles}
 				onClick={onClick}
 			>
 				{text === 'default' ? children : text}
@@ -23,6 +25,7 @@ const DropDownItem = ({
 				className={`${styles.dropDownItem} ${isSelect ? styles.active : ''} ${
 					styles.wicon
 				}`}
+				style={additionalStyles}
 				onClick={onClick}
 			>
 				{icon}

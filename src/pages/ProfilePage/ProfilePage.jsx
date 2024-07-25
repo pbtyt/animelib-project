@@ -9,12 +9,14 @@ import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
+import { useNavigate } from 'react-router-dom';
 import ProfileGridAnimeCardItem from '../../components/ProfileGridAnimeCardItem/ProfileGridAnimeCardItem';
 import ProfileListAnimeCardItem from '../../components/ProfileListAnimeCardItem/ProfileListAnimeCardItem';
 import TProfilePageFilterSectionItem from '../../templates/TProfilePageFilterSectionItem';
 
 const ProfilePage = () => {
 	const [view, setView] = useState('grid');
+	const navigate = useNavigate();
 	return (
 		<div className={styles.container}>
 			<div className={styles.profilePageHeader}>
@@ -42,6 +44,7 @@ const ProfilePage = () => {
 							/>
 						}
 						text='Настройки'
+						onClick={() => navigate('./53/settings')}
 					/>
 				</div>
 

@@ -3,6 +3,7 @@ import styles from './AnimePage.module.css';
 
 import {
 	ArrowUpDown,
+	Bookmark,
 	ChevronDown,
 	CirclePlay,
 	Plus,
@@ -21,6 +22,7 @@ import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
 import Input from '../../ui/Input/Input';
 
 import { useParams } from 'react-router-dom';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import { animeService } from '../../services/anime.service';
 
 const AnimePage = () => {
@@ -30,6 +32,13 @@ const AnimePage = () => {
 	const [activeTab, setActiveTab] = useState(1);
 
 	const [animeData, setAnimeData] = useState({});
+
+	// NOTE: Only for TEST
+	const { setValue, storedValue } = useLocalStorage('folder', {});
+	storedValue['UserFolders'].map(el => {
+		console.log(el);
+	});
+	const [folder, setFolder] = useState('');
 
 	const { id } = useParams();
 
@@ -61,16 +70,43 @@ const AnimePage = () => {
 						</span>
 					</button>
 
-					<div className={styles.planButtons}>
-						<button className={styles.addToPlans}>
-							<Plus size={14} color='#bfbfbf' />
-							<span className={styles.planBtnText}>Добавить в планы</span>
-						</button>
+					<DropDown
+						useTemplate={true}
+						template={
+							<div className={styles.planButtons}>
+								<button className={styles.addToPlans}>
+									{folder !== '' ? (
+										<Bookmark size={18} />
+									) : (
+										<Plus size={14} color='#bfbfbf' />
+									)}
+									<span className={styles.planBtnText}>
+										{folder === '' ? 'Добавить в планы' : folder}
+									</span>
+								</button>
 
-						<button className={styles.chevron}>
-							<ChevronDown color='#bfbfbf' strokeWidth={2} size={18} />
-						</button>
-					</div>
+								<button className={styles.chevron}>
+									<ChevronDown color='#bfbfbf' strokeWidth={2} size={18} />
+								</button>
+							</div>
+						}
+						minMenuWidth='100%'
+						topOffset='-240'
+					>
+						{storedValue['UserFolders'].map(el => (
+							<DropDownItem
+								key={el.id}
+								text={el.name}
+								onClick={() => setFolder(el.name)}
+							/>
+						))}
+
+						<DropDownItem
+							text='Удалить из списка'
+							additionalStyles={{ color: '#de7072' }}
+							onClick={() => setFolder('')}
+						/>
+					</DropDown>
 
 					<div className={styles.animeInfo}>
 						<div className={styles.animeInfoItem}>

@@ -1,0 +1,33 @@
+.container {
+	align-self: center;
+	max-width: 1200px;
+	width: 100%;
+
+	display: grid;
+	grid-template-columns: 220px 1fr;
+	gap: 1.35rem;
+}
+
+.tabs,
+.settingsPageMain {
+	display: flex;
+	flex-direction: column;
+	padding: 0.75rem;
+	border-radius: 8px;
+	background-color: #1c1c1c;
+}
+
+.sectionsWrapper {
+	flex-grow: 1;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.section span {
+	font-size: 14px;
+	color: #ebebf580;
+}

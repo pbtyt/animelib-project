@@ -114,6 +114,10 @@
 	background-color: #1c1c1c;
 }
 
+.filter {
+	padding: 1rem 0.5rem;
+}
+
 .filterSectionTitleWrapper {
 	display: flex;
 	align-items: center;
