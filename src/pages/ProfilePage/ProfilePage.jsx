@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styles from './ProfilePage.module.css';
 
-import { LayoutGrid, List, Settings } from 'lucide-react';
+import useModal from '../../hooks/useModal';
+
+import { LayoutGrid, List, Pencil, Settings } from 'lucide-react';
 
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
@@ -10,13 +12,22 @@ import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
 import { useNavigate } from 'react-router-dom';
+
+import useLocalStorage from '../../hooks/useLocalStorage';
+
+import FolderEditModal from '../../components/FolderEditModal/FolderEditModal';
 import ProfileGridAnimeCardItem from '../../components/ProfileGridAnimeCardItem/ProfileGridAnimeCardItem';
 import ProfileListAnimeCardItem from '../../components/ProfileListAnimeCardItem/ProfileListAnimeCardItem';
 import TProfilePageFilterSectionItem from '../../templates/TProfilePageFilterSectionItem';
 
 const ProfilePage = () => {
 	const [view, setView] = useState('grid');
+	const [selectedFolder, setSelectedFolder] = useState(1);
 	const navigate = useNavigate();
+	const { showModal } = useModal();
+
+	//NOTE: Only For TEST
+	const { setValue, storedValue } = useLocalStorage('folder', {});
 	return (
 		<div className={styles.container}>
 			<div className={styles.profilePageHeader}>
@@ -87,23 +98,38 @@ const ProfilePage = () => {
 						</div>
 
 						<div className={styles.filterSectionItems}>
-							<DropDownItem isSelect={true}>
-								<TProfilePageFilterSectionItem title='Все' count='0' />
-							</DropDownItem>
-							<DropDownItem>
-								<TProfilePageFilterSectionItem title='Читаю' count='0' />
-							</DropDownItem>
-							<DropDownItem>
-								<TProfilePageFilterSectionItem title='В планах' count='0' />
-							</DropDownItem>
-							<DropDownItem>
-								<TProfilePageFilterSectionItem title='Брошено' count='0' />
-							</DropDownItem>
-							<DropDownItem>
-								<TProfilePageFilterSectionItem title='Прочитано' count='0' />
-							</DropDownItem>
-							<DropDownItem>
-								<TProfilePageFilterSectionItem title='Любимые' count='0' />
+							{storedValue['UserFolders'].map((element, index) => (
+								<DropDownItem
+									key={element.id}
+									isSelect={selectedFolder === element.id}
+									onClick={() => setSelectedFolder(element.id)}
+								>
+									<TProfilePageFilterSectionItem
+										title={element.name}
+										count={element.count}
+									/>
+								</DropDownItem>
+							))}
+
+							<DropDownItem
+								additionalStyles={{ display: 'flex' }}
+								onClick={() => showModal(<FolderEditModal />)}
+							>
+								<button
+									style={{
+										flexGrow: '1',
+										textAlign: 'left',
+										color: '#ebebf580',
+									}}
+								>
+									Редактировать...
+								</button>
+								<Pencil
+									color='#ebebf580'
+									width={16}
+									height={16}
+									strokeWidth={2}
+								/>
 							</DropDownItem>
 						</div>
 					</div>

@@ -5,11 +5,12 @@ const HeaderButton = ({
 	icon,
 	text = 'Header Button',
 	onClick = () => {},
+	needHoverStyles = true,
 	additionalStyles = {},
 }) => {
 	return (
 		<button
-			className={styles.button}
+			className={`${styles.button} ${needHoverStyles ? styles.hover : ''}`}
 			style={additionalStyles}
 			onClick={onClick}
 		>

@@ -1,0 +1,49 @@
+.modalContent {
+	width: 400px;
+	margin: 0 auto;
+	margin-bottom: 10rem;
+	border-radius: 6px;
+	background-color: #1c1c1c;
+
+	align-self: center;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.titleWrapper {
+	padding: 14px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	flex-grow: 1;
+	font-size: 17px;
+	font-weight: 500;
+}
+
+.folderItem {
+	padding: 7px 12px 7px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.folderItem span {
+	text-align: left;
+	flex-grow: 1;
+}
+
+.modalFooter {
+	display: flex;
+	align-items: center;
+
+	margin-top: 9px;
+	padding-left: 12px;
+	padding-right: 4px;
+
+	border-top: 1px solid #3b3d45;
+	background: #252527;
+	border-end-end-radius: 6px;
+	border-end-start-radius: 6px;
+}

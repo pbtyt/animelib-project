@@ -35,9 +35,7 @@ const AnimePage = () => {
 
 	// NOTE: Only for TEST
 	const { setValue, storedValue } = useLocalStorage('folder', {});
-	storedValue['UserFolders'].map(el => {
-		console.log(el);
-	});
+
 	const [folder, setFolder] = useState('');
 
 	const { id } = useParams();

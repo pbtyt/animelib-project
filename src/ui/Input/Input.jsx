@@ -13,6 +13,7 @@ const Input = ({
 	isReadonly = false,
 	oInputValue = '',
 	icon = null,
+	needClearIcon = true,
 }) => {
 	const [inputValue, setInputValue] = useState('');
 	return (
@@ -36,7 +37,7 @@ const Input = ({
 				}}
 				readOnly={isReadonly}
 			/>
-			{inputValue.length > 0 ? (
+			{inputValue.length && needClearIcon > 0 ? (
 				<X
 					size={12}
 					color='#bfbfbf'
