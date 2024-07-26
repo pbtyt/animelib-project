@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './DropDown.module.css';
 
 import { ChevronDown } from 'lucide-react';
+import { useOutside } from '../../hooks/useOutside';
 
 const DropDown = ({
 	useTemplate = false,
@@ -14,10 +15,15 @@ const DropDown = ({
 	leftOffset = '0',
 	menuAdditionalStyles = {},
 }) => {
-	const [isOpened, setIsOpened] = useState(false);
-
+	const { isShow, setIsShow, ref } = useOutside(false);
 	return (
-		<div className={styles.dropdown} onClick={() => setIsOpened(prev => !prev)}>
+		<div
+			ref={ref}
+			className={styles.dropdown}
+			onClick={() => {
+				setIsShow(true);
+			}}
+		>
 			{useTemplate ? (
 				template
 			) : !button ? (
@@ -30,7 +36,7 @@ const DropDown = ({
 			)}
 
 			<ul
-				className={`${styles.choose} ${isOpened ? styles.opened : ''}`}
+				className={`${styles.choose} ${isShow ? styles.opened : ''}`}
 				style={{
 					minWidth: `${minMenuWidth}`,
 					top: `${topOffset}px`,

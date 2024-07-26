@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.css';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useModal from '../../hooks/useModal';
 
 import {
+	ArrowRight,
 	Bell,
 	BookHeart,
-	CheckCheck,
 	CircleUserRound,
 	Compass,
 	Ellipsis,
@@ -34,13 +34,16 @@ import {
 import DropDown from '../../ui/DropDown/DropDown';
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
+import NotificationDropDown from '../NotificationDropDown/NotificationDropDown';
 import SearchModal from '../SearchModal/SearchModal';
 
 const Header = () => {
 	const navigate = useNavigate();
 	const { showModal, hideModal } = useModal();
 
+	//NOTE: ONLY FOR TEST
 	const isLogin = false;
+	const [notificationCount, setNotificationCount] = useState(2);
 
 	return (
 		<div className={styles.headerWrapper}>
@@ -243,133 +246,15 @@ const Header = () => {
 					/>
 
 					<div style={{ position: 'relative' }}>
-						<DropDown
-							button={
-								<HeaderButton
-									icon={
-										<Bell
-											color='#bfbfbf'
-											width={16}
-											height={16}
-											strokeWidth={3}
-										/>
-									}
-									text={''}
-								/>
-							}
-							minMenuWidth='440px'
-							menuAdditionalStyles={{ padding: '.7rem', paddingBottom: '0' }}
-							leftOffset='-250'
-							topOffset='45'
-						>
-							<div
-								style={{
-									backgroundColor: '#303032',
-									display: 'flex',
-									flexDirection: 'column',
-									gap: '.6rem',
-								}}
-							>
-								<div style={{ display: 'flex', alignItems: 'center' }}>
-									<Settings
-										color='#bfbfbf'
-										width={16}
-										height={16}
-										strokeWidth={2}
-									/>
-									<span
-										style={{
-											flexGrow: '1',
-											textAlign: 'center',
-											fontWeight: '500',
-											fontSize: '15px',
-										}}
-									>
-										Уведомления
-									</span>
-									<CheckCheck
-										color='#bfbfbf'
-										width={16}
-										height={16}
-										strokeWidth={2}
-									/>
-								</div>
-								<div
-									style={{
-										height: '500px',
-										maxHeight: 'calc(100vh - 190px)',
-										overflow: 'hidden',
-									}}
-								>
-									<div
-										style={{
-											marginTop: '.5rem',
-											display: 'flex',
-											gap: '.8rem',
-											alignItems: 'center',
-										}}
-									>
-										<img
-											src='./posters/jujutsu-kaisen.jpg'
-											alt='poster'
-											width={50}
-											height={70}
-											style={{ borderRadius: '6px' }}
-										/>
-
-										<div style={{ display: 'flex', flexDirection: 'column' }}>
-											<span
-												style={{
-													fontSize: '13px',
-													fontWeight: '700',
-												}}
-											>
-												AnilibriaTV{' '}
-												<span
-													style={{
-														marginLeft: '.35rem',
-														fontSize: '12px',
-														fontWeight: '400',
-														color: '#ebebf580',
-													}}
-												>
-													11 часов назад
-												</span>
-											</span>
-											<span style={{ fontSize: '14px', lineHeight: '20px' }}>
-												Добавлена новая Серия 24
-											</span>
-											<span style={{ fontSize: '14px', lineHeight: '20px' }}>
-												В тайтле{' '}
-												<Link
-													to={'./'}
-													style={{
-														fontWeight: '500',
-														color: '#bfbfbf',
-														borderBottom: '1px solid #bfbfbf26',
-													}}
-												>
-													Магическая Битва
-												</Link>
-											</span>
-										</div>
-									</div>
-								</div>
-								<Link
-									style={{
-										cursor: 'pointer',
-										padding: '.5rem',
-										flexGrow: '1',
-										textAlign: 'center',
-										borderTop: '1px solid #545458a6',
-										color: '#8a8a8e',
-									}}
-								>
-									Показать все уведомления
-								</Link>
+						<NotificationDropDown
+							notificationCount={notificationCount}
+							setNotificationCount={setNotificationCount}
+						/>
+						{notificationCount > 0 && (
+							<div className={styles.notificationCount}>
+								{notificationCount}
 							</div>
-						</DropDown>
-						<div className={styles.notificationCount}>1</div>
+						)}
 					</div>
 
 					<div
@@ -396,7 +281,7 @@ const Header = () => {
 							/>
 						}
 						topOffset='50'
-						leftOffset='-50'
+						leftOffset='-180'
 					>
 						<div style={{ width: '220px' }}>
 							<DropDownItem
@@ -427,9 +312,23 @@ const Header = () => {
 										}}
 									>
 										<span style={{ fontWeight: '600' }}>blad3</span>
-										<span style={{ fontSize: '12px', fontWeight: '400' }}>
-											{' '}
-											Мой профиль{' '}
+										<span
+											style={{
+												fontSize: '12px',
+												fontWeight: '400',
+												color: '#ebebf580',
+												display: 'flex',
+												alignItems: 'center',
+												gap: '.2rem',
+											}}
+										>
+											Мой профиль
+											<ArrowRight
+												color='#ebebf580'
+												width={16}
+												height={14}
+												strokeWidth={2}
+											/>
 										</span>
 									</div>
 								</div>
