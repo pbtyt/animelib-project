@@ -14,6 +14,8 @@ const CatalogCard = ({
 	rating = '0,0',
 	poster_src = './posters/jujutsu-kaisen.jpg',
 }) => {
+	console.warn(`[CatalogCard ${title}]: Re-render`);
+
 	const [isHover, setIsHover] = useState(false);
 	const [animeData, setAnimeData] = useState({});
 

@@ -11,13 +11,13 @@ import Input from '../../ui/Input/Input';
 import ModalBase from '../ModalBase/ModalBase';
 
 const FolderEditModal = () => {
+	console.warn('[FolderEditModal]: Re-Render');
 	const contentRef = useRef(null);
 	const { hideModal } = useModal();
 	//NOTE: Only For TEST
 	const { setValue, storedValue } = useLocalStorage('folder', {});
 
 	const [inputValue, setInputValue] = useState('');
-	console.log('rerender');
 	return (
 		<ModalBase contentRef={contentRef}>
 			<div className={styles.modalContent} ref={contentRef}>
@@ -54,16 +54,16 @@ const FolderEditModal = () => {
 						additionalStyles={{ padding: '.5rem' }}
 						needHoverStyles={false}
 						onClick={() => {
-							console.log(inputValue);
-							// storedValue['UserFolders'].push({
-							// 	id: 6,
-							// 	name: 'top',
-							// 	color: '#ff9b40',
-							// 	count: 0,
-							// });
-							// setValue({
-							// 	UserFolders: storedValue['UserFolders'],
-							// });
+							const lastUsedFolderID = storedValue['UserFolders'].at(-1).id;
+							storedValue['UserFolders'].push({
+								id: lastUsedFolderID + 1,
+								name: inputValue,
+								color: '#d04ae8',
+								count: 0,
+							});
+							setValue({
+								UserFolders: storedValue['UserFolders'],
+							});
 						}}
 					/>
 				</div>

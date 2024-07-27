@@ -36,8 +36,7 @@ const AnimePage = () => {
 	// NOTE: Only for TEST
 	const { setValue, storedValue } = useLocalStorage('folder', {});
 
-	const [folder, setFolder] = useState('');
-
+	const [folder, setFolder] = useState({});
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -73,13 +72,16 @@ const AnimePage = () => {
 						template={
 							<div className={styles.planButtons}>
 								<button className={styles.addToPlans}>
-									{folder !== '' ? (
-										<Bookmark size={18} />
+									{folder?.name ? (
+										<Bookmark size={22} fill={folder?.color} strokeWidth={0} />
 									) : (
 										<Plus size={14} color='#bfbfbf' />
 									)}
-									<span className={styles.planBtnText}>
-										{folder === '' ? 'Добавить в планы' : folder}
+									<span
+										className={styles.planBtnText}
+										style={{ color: folder?.color }}
+									>
+										{!folder?.name ? 'Добавить в планы' : folder?.name}
 									</span>
 								</button>
 
@@ -89,20 +91,20 @@ const AnimePage = () => {
 							</div>
 						}
 						minMenuWidth='100%'
-						topOffset='-240'
+						topOffset='-275'
 					>
 						{storedValue['UserFolders'].map(el => (
 							<DropDownItem
 								key={el.id}
 								text={el.name}
-								onClick={() => setFolder(el.name)}
+								onClick={() => setFolder(el)}
 							/>
 						))}
 
 						<DropDownItem
 							text='Удалить из списка'
 							additionalStyles={{ color: '#de7072' }}
-							onClick={() => setFolder('')}
+							onClick={() => setFolder({})}
 						/>
 					</DropDown>
 

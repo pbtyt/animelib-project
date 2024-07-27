@@ -9,7 +9,7 @@ import { animeService } from '../../services/anime.service';
 import ModalBase from '../ModalBase/ModalBase';
 
 const SearchModal = () => {
-	console.warn('SEARCH MODAL RE-RERENDER');
+	console.warn('[SearchModal]: Re-Render');
 	const [animeTitles, setAnimeTitles] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
 

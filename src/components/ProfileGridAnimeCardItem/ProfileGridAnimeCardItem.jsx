@@ -10,6 +10,7 @@ import NoteModal from '../NoteModal/NoteModal';
 import ProfileCardEditModal from '../ProfileCardEditModal/ProfileCardEditModal';
 
 const ProfileGridAnimeCardItem = () => {
+	console.warn('[ProfileGridAnimeCardItem]: Re-Render');
 	const { showModal } = useModal();
 
 	return (

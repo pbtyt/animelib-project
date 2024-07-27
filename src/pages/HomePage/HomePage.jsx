@@ -6,6 +6,7 @@ import WatchNow from '../../components/WatchNow/WatchNow';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
+	console.warn('[HomePage]: Re-Render');
 	return (
 		<div className={styles.container}>
 			<AnimeScroller />

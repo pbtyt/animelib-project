@@ -62,4 +62,4 @@ const ProfileListAnimeCardItem = () => {
 	);
 };
 
-export default React.memo(ProfileListAnimeCardItem);
+export default ProfileListAnimeCardItem;

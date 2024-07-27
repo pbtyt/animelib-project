@@ -2,7 +2,9 @@ import { useCallback, useState } from 'react';
 
 function useLocalStorage(key, initialValue) {
 	console.log('[UseLocalStorage.js]: Invoke');
+
 	const [storedValue, setStoredValue] = useState(() => {
+		console.log('[UseLocalStorage.js]: UseStateDefaultValue Func Invoke');
 		const item = window.localStorage.getItem(key);
 
 		return item ? JSON.parse(item) : initialValue;
