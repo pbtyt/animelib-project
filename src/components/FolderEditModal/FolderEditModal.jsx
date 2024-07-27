@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './FolderEditModal.module.css';
 
 import { Menu, Plus, X } from 'lucide-react';
@@ -15,6 +15,9 @@ const FolderEditModal = () => {
 	const { hideModal } = useModal();
 	//NOTE: Only For TEST
 	const { setValue, storedValue } = useLocalStorage('folder', {});
+
+	const [inputValue, setInputValue] = useState('');
+	console.log('rerender');
 	return (
 		<ModalBase contentRef={contentRef}>
 			<div className={styles.modalContent} ref={contentRef}>
@@ -36,6 +39,8 @@ const FolderEditModal = () => {
 				</div>
 				<div className={styles.modalFooter}>
 					<Input
+						inputValue={inputValue}
+						setInputValue={setInputValue}
 						needClearIcon={false}
 						icon={<></>}
 						additionalStyles={{ border: 'none', height: '44px', flexGrow: '1' }}
@@ -49,15 +54,16 @@ const FolderEditModal = () => {
 						additionalStyles={{ padding: '.5rem' }}
 						needHoverStyles={false}
 						onClick={() => {
-							storedValue['UserFolders'].push({
-								id: 6,
-								name: 'top',
-								color: '#ff9b40',
-								count: 0,
-							});
-							setValue({
-								UserFolders: storedValue['UserFolders'],
-							});
+							console.log(inputValue);
+							// storedValue['UserFolders'].push({
+							// 	id: 6,
+							// 	name: 'top',
+							// 	color: '#ff9b40',
+							// 	count: 0,
+							// });
+							// setValue({
+							// 	UserFolders: storedValue['UserFolders'],
+							// });
 						}}
 					/>
 				</div>

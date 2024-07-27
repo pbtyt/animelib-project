@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './AnimeScroller.module.css'
-import AnimeCard from '../AnimeCard/AnimeCard'
-import Scroller from '../Scroller/Scroller'
+import AnimeCard from '../AnimeCard/AnimeCard';
+import Scroller from '../Scroller/Scroller';
+import styles from './AnimeScroller.module.css';
 
 const AnimeScroller = () => {
-    return (
-        <div className={styles.animeScrollerWrapper}>
-            <Scroller>
-                {
-                    [...new Array(13)].map((_, index)=><AnimeCard key={index}/>)
-                }
-            </Scroller>
-        </div>
-    )
-}
+	return (
+		<div className={styles.animeScrollerWrapper}>
+			<Scroller scrollStep={560}>
+				{[...new Array(13)].map((_, index) => (
+					<AnimeCard key={index} />
+				))}
+			</Scroller>
+		</div>
+	);
+};
 
-export default AnimeScroller
+export default AnimeScroller;

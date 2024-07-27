@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './Header.module.css';
 
 import { useNavigate } from 'react-router-dom';
-import useModal from '../../hooks/useModal';
 
 import {
 	ArrowRight,
@@ -23,7 +22,6 @@ import {
 	MessageSquareText,
 	MessagesSquare,
 	Plus,
-	Search,
 	Settings,
 	SquareUser,
 	Star,
@@ -35,16 +33,16 @@ import DropDown from '../../ui/DropDown/DropDown';
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import NotificationDropDown from '../NotificationDropDown/NotificationDropDown';
-import SearchModal from '../SearchModal/SearchModal';
+import SearchButton from './SearchButton';
 
 const Header = () => {
 	const navigate = useNavigate();
-	const { showModal, hideModal } = useModal();
 
 	//NOTE: ONLY FOR TEST
-	const isLogin = false;
+	const [isLogin, setIsLogin] = useState(false);
 	const [notificationCount, setNotificationCount] = useState(2);
 
+	console.warn('[Header] Re-Render');
 	return (
 		<div className={styles.headerWrapper}>
 			<div className={styles.logoWrapper}></div>
@@ -194,15 +192,7 @@ const Header = () => {
 					</div>
 				</DropDown>
 
-				<HeaderButton
-					onClick={() => {
-						showModal(<SearchModal />);
-					}}
-					icon={
-						<Search color='#bfbfbf' width={16} height={16} strokeWidth={3} />
-					}
-					text='Поиск'
-				/>
+				<SearchButton />
 				<HeaderButton
 					icon={
 						<MessagesSquare
@@ -222,9 +212,12 @@ const Header = () => {
 				/>
 			</div>
 
-			{isLogin ? (
+			{!isLogin ? (
 				<div className={styles.headerLogin}>
-					<button className={styles.buttonLogin}>
+					<button
+						className={styles.buttonLogin}
+						onClick={() => setIsLogin(true)}
+					>
 						<LogIn color='#fff' width={16} height={16} strokeWidth={4} />
 						<span>Вход | Регистрация</span>
 					</button>
@@ -259,12 +252,26 @@ const Header = () => {
 
 					<div
 						style={{
-							width: '32px',
-							height: '32px',
+							cursor: 'pointer',
+							width: '38px',
+							height: '38px',
 							backgroundColor: '#4d4d4d',
 							borderRadius: '5px',
 						}}
-					></div>
+						onClick={() => navigate('/profile')}
+					>
+						<img
+							src='../avatar.jpg'
+							alt='avatar'
+							style={{
+								borderRadius: '5px',
+								width: '100%',
+								height: '100%',
+								objectFit: 'cover',
+								objectPosition: 'center',
+							}}
+						/>
+					</div>
 
 					<DropDown
 						button={
@@ -427,7 +434,9 @@ const Header = () => {
 										strokeWidth={3}
 									/>
 								}
+								additionalStyles={{ color: '#de7072' }}
 								text='Выйти'
+								onClick={() => setIsLogin(false)}
 							/>
 						</div>
 					</DropDown>
@@ -437,4 +446,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default React.memo(Header);

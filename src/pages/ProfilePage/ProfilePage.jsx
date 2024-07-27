@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ProfilePage.module.css';
 
-import useModal from '../../hooks/useModal';
-
-import { LayoutGrid, List, Pencil, Settings } from 'lucide-react';
+import { LayoutGrid, List, Settings } from 'lucide-react';
 
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 import DropDownRatioItem from '../../ui/DropDownRatioItem/DropDownRatioItem';
@@ -13,26 +11,24 @@ import Input from '../../ui/Input/Input';
 
 import { useNavigate } from 'react-router-dom';
 
-import useLocalStorage from '../../hooks/useLocalStorage';
-
-import FolderEditModal from '../../components/FolderEditModal/FolderEditModal';
 import ProfileGridAnimeCardItem from '../../components/ProfileGridAnimeCardItem/ProfileGridAnimeCardItem';
 import ProfileListAnimeCardItem from '../../components/ProfileListAnimeCardItem/ProfileListAnimeCardItem';
-import TProfilePageFilterSectionItem from '../../templates/TProfilePageFilterSectionItem';
+import ProfilePageFolderFilter from '../../components/ProfilePageFolderFilter/ProfilePageFolderFilter';
 
 const ProfilePage = () => {
-	const [view, setView] = useState('grid');
-	const [selectedFolder, setSelectedFolder] = useState(1);
-	const navigate = useNavigate();
-	const { showModal } = useModal();
+	console.warn('[ProfilePage]: Re-Render');
 
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', {});
+	const [view, setView] = useState('grid');
+
+	const navigate = useNavigate();
+
+	const [inputValue, setInputValue] = useState('');
 	return (
 		<div className={styles.container}>
 			<div className={styles.profilePageHeader}>
 				<div className={styles.profileInfo}>
 					<div className={styles.userIcon}>
+						<img src='../avatar.jpg' alt='avatar' />
 						<div className={`${styles.userStatus} ${styles.online}`}></div>
 					</div>
 
@@ -98,39 +94,7 @@ const ProfilePage = () => {
 						</div>
 
 						<div className={styles.filterSectionItems}>
-							{storedValue['UserFolders'].map((element, index) => (
-								<DropDownItem
-									key={element.id}
-									isSelect={selectedFolder === element.id}
-									onClick={() => setSelectedFolder(element.id)}
-								>
-									<TProfilePageFilterSectionItem
-										title={element.name}
-										count={element.count}
-									/>
-								</DropDownItem>
-							))}
-
-							<DropDownItem
-								additionalStyles={{ display: 'flex' }}
-								onClick={() => showModal(<FolderEditModal />)}
-							>
-								<button
-									style={{
-										flexGrow: '1',
-										textAlign: 'left',
-										color: '#ebebf580',
-									}}
-								>
-									Редактировать...
-								</button>
-								<Pencil
-									color='#ebebf580'
-									width={16}
-									height={16}
-									strokeWidth={2}
-								/>
-							</DropDownItem>
+							<ProfilePageFolderFilter />
 						</div>
 					</div>
 					{/*  */}
@@ -200,6 +164,8 @@ const ProfilePage = () => {
 				</div>
 				<div className={`${styles.column} ${styles.content}`}>
 					<Input
+						setInputValue={setInputValue}
+						inputValue={inputValue}
 						placeholder='Фильтр по названию'
 						type='text'
 						padding='12'

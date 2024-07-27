@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Input.module.css';
 
 import { Search, X } from 'lucide-react';
@@ -14,8 +14,10 @@ const Input = ({
 	oInputValue = '',
 	icon = null,
 	needClearIcon = true,
+	setInputValue,
+	inputValue = '',
 }) => {
-	const [inputValue, setInputValue] = useState('');
+	// const [inputValue, setInputValue] = useState('');
 	return (
 		<div className={styles.inputWrapper} style={additionalStyles}>
 			{!icon ? (
@@ -30,7 +32,7 @@ const Input = ({
 				placeholder={placeholder}
 				min={minValue}
 				max={maxValue}
-				value={oInputValue === '' ? inputValue : oInputValue}
+				value={inputValue}
 				className={styles.input}
 				onChange={event => {
 					setInputValue(event.target.value);

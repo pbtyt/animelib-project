@@ -7,7 +7,6 @@ import { ModalContext } from '../providers/ModalProvider';
 
 const Layout = () => {
 	const { activeModal, activeModals } = useContext(ModalContext);
-	console.log(typeof activeModals);
 	return (
 		<>
 			<Header />

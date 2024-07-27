@@ -40,7 +40,7 @@ const ProfileSettingsPage = () => {
 				<div className={styles.sectionsWrapper}>
 					<div className={styles.section}>
 						<span>Никнейм</span>
-						<Input icon={<></>} placeholder='Никнейм...' oInputValue='blad3' />
+						<Input icon={<></>} placeholder='Никнейм...' inputValue='blad3' />
 					</div>
 				</div>
 
