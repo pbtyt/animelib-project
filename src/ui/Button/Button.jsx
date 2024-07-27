@@ -19,6 +19,7 @@ const Button = ({
 		{
 			display: 'flex',
 			alignItems: 'center',
+			justifyContent: 'center',
 			gap: '.5rem',
 			backgroundColor: '#4baf50',
 			color: 'white',

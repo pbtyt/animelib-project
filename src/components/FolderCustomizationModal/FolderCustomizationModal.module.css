@@ -1,0 +1,40 @@
+.modalContent {
+	width: 400px;
+	margin: 0 auto;
+	margin-bottom: 10rem;
+	border-radius: 6px;
+	background-color: #1c1c1c;
+
+	align-self: center;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.titleWrapper {
+	padding: 14px 20px;
+	padding-bottom: 4px;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	flex-grow: 1;
+	font-size: 17px;
+	font-weight: 500;
+}
+
+.subTitle {
+	color: #ebebf580;
+	font-size: 13.5px;
+}
+
+.modalMain > * {
+	padding: 10px 20px;
+}
+
+.buttonsWrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
