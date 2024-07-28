@@ -1,22 +1,45 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './ModalBase.module.css';
 
 import useModal from '../../hooks/useModal';
 
-const ModalBase = ({ attachmentPos = 'left', children, contentRef = null }) => {
+const ModalBase = ({
+	attachmentPos = 'left',
+	alignPos = 'center',
+	modalWindowWidth,
+	offsetSettings = {},
+	additionalStyles = {},
+	children,
+}) => {
 	const { hideModal } = useModal();
+	const modalRef = useRef(null);
 	return (
 		<div
-			className={`${styles.modalWrapper} ${
-				attachmentPos === 'left' ? styles.left : styles.right
-			}`}
+			className={`
+				${styles.modalWrapper} 
+				${attachmentPos === 'left' ? styles.left : styles.right}
+			`}
 			onClick={e => {
-				if (contentRef.current && !contentRef.current.contains(e.target)) {
+				if (modalRef.current && !modalRef.current.contains(e.target)) {
 					hideModal();
 				}
 			}}
 		>
-			{children}
+			<div
+				className={`
+					${styles.modalContent}
+					${alignPos === 'center' ? styles.center : styles.top}
+				`}
+				style={{
+					width: modalWindowWidth,
+					marginTop: offsetSettings?.top || '0px',
+					marginBottom: offsetSettings?.bottom || '0px',
+					...additionalStyles,
+				}}
+				ref={modalRef}
+			>
+				{children}
+			</div>
 		</div>
 	);
 };

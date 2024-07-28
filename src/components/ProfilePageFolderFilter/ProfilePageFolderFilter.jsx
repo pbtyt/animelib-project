@@ -7,7 +7,7 @@ import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 
 import { Pencil } from 'lucide-react';
 import useModal from '../../hooks/useModal';
-import FolderCustomizationModal from '../FolderCustomizationModal/FolderCustomizationModal';
+import FolderEditModal from '../FolderEditModal/FolderEditModal';
 
 const ProfilePageFolderFilter = () => {
 	console.warn('[ProfilePageFolderFilter]: Re-Render');
@@ -32,7 +32,8 @@ const ProfilePageFolderFilter = () => {
 			))}
 			<DropDownItem
 				additionalStyles={{ display: 'flex' }}
-				onClick={() => showModal(<FolderCustomizationModal />)}
+				// onClick={() => showModal(<FolderCustomizationModal />)}
+				onClick={() => showModal(<FolderEditModal />)}
 			>
 				<button
 					style={{

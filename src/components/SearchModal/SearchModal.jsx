@@ -20,54 +20,53 @@ const SearchModal = () => {
 	}, [searchQuery]);
 
 	return (
-		<ModalBase contentRef={contentRef}>
-			<div className={styles.modalContent} ref={contentRef}>
-				<div className={styles.inputWrapper}>
-					<Search color='rgba(235, 235, 245, .5)' strokeWidth={2} size={17} />
-					<input
-						type='text'
-						className={styles.input}
-						placeholder='Поиск тайтлов'
-						// поменять на real-time поиск...
-						onKeyDown={event => {
-							if (event.key === 'Enter') {
-								setSearchQuery(event.target.value);
-							}
-						}}
-					/>
-				</div>
+		<ModalBase
+			contentRef={contentRef}
+			alignPos='top'
+			modalWindowWidth={'740px'}
+			offsetSettings={{ top: '20px' }}
+		>
+			<div className={styles.inputWrapper}>
+				<Search color='rgba(235, 235, 245, .5)' strokeWidth={2} size={17} />
+				<input
+					type='text'
+					className={styles.input}
+					placeholder='Поиск тайтлов'
+					// поменять на real-time поиск...
+					onKeyDown={event => {
+						if (event.key === 'Enter') {
+							setSearchQuery(event.target.value);
+						}
+					}}
+				/>
+			</div>
 
-				<div className={styles.tabsWrapper}>
-					<div className={styles.tab}>
-						<span className={`${styles.tabText} ${styles.isActive}`}>
-							Тайтлы
-						</span>
-					</div>
-					<div className={styles.tab}>
-						<span className={styles.tabText}>Тайтлы</span>
-					</div>
-					<div className={styles.tab}>
-						<span className={styles.tabText}>Тайтлы</span>
-					</div>
-					<div className={styles.tab}>
-						<span className={styles.tabText}>Тайтлы</span>
-					</div>
-					<div className={styles.tab}>
-						<span className={styles.tabText}>Тайтлы</span>
-					</div>
+			<div className={styles.tabsWrapper}>
+				<div className={styles.tab}>
+					<span className={`${styles.tabText} ${styles.isActive}`}>Тайтлы</span>
 				</div>
-				<div className={styles.searchResultWrapper}>
-					{animeTitles?.length === 0 ? (
-						<p className={styles.empty}>
-							<span>Расширенный поиск тайтлов находиться в </span>
-							<Link to='/catalog'>каталог</Link>
-						</p>
-					) : (
-						animeTitles.map(data => (
-							<SearchModalItem data={data} key={data.id} />
-						))
-					)}
+				<div className={styles.tab}>
+					<span className={styles.tabText}>Тайтлы</span>
 				</div>
+				<div className={styles.tab}>
+					<span className={styles.tabText}>Тайтлы</span>
+				</div>
+				<div className={styles.tab}>
+					<span className={styles.tabText}>Тайтлы</span>
+				</div>
+				<div className={styles.tab}>
+					<span className={styles.tabText}>Тайтлы</span>
+				</div>
+			</div>
+			<div className={styles.searchResultWrapper}>
+				{animeTitles?.length === 0 ? (
+					<p className={styles.empty}>
+						<span>Расширенный поиск тайтлов находиться в </span>
+						<Link to='/catalog'>каталог</Link>
+					</p>
+				) : (
+					animeTitles.map(data => <SearchModalItem data={data} key={data.id} />)
+				)}
 			</div>
 		</ModalBase>
 	);

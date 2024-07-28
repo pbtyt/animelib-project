@@ -21,3 +21,17 @@
 .modalWrapper.right {
 	flex-direction: row-reverse;
 }
+
+.modalContent {
+	margin: 0 auto;
+	border-radius: 6px;
+	background-color: #1c1c1c;
+}
+
+.modalContent.top {
+	align-self: flex-start;
+}
+
+.modalContent.center {
+	align-self: center;
+}
