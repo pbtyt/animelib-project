@@ -4,4 +4,12 @@
 	background-color: #1c1c1c;
 
 	position: relative;
+
+	min-height: 273px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+	.animeScrollerWrapper {
+		height: 245px;
+	}
 }

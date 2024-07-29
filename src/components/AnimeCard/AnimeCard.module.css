@@ -1,47 +1,67 @@
-.animeCardWrapper{
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
+.animeCardWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+
+	min-width: 135px;
 }
 /* 
 .animeCardWrapper:last-child{
     padding-right: 1rem;
 } */
 
-.animeCardPosterWrapper{
-    position: relative;
+.animeCardPosterWrapper {
+	position: relative;
 }
 
-.animeCardPoster{
-    border-radius: 7px;
+.animeCardPoster {
+	border-radius: 7px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
-.episodeCount{
-    position: absolute;
-    bottom: 12px;
-    left: 7px;
+.episodeCount {
+	position: absolute;
+	bottom: 12px;
+	left: 7px;
 
-    font-size: 12px;
-    padding: .2rem .3rem;
-    color: #fff;
-    background-color: rgba(0,0,0,.8);
-    border-radius: 5px;
+	font-size: 12px;
+	padding: 0.2rem 0.3rem;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
 }
 
-.animeTitle{
-    font-size: 1em;
-    line-height: 18px;
-    font-weight: 600;
-    color: #bfbfbf;
-    transition: color 300ms ease;
+.animeTitle {
+	font-size: 1em;
+	line-height: 18px;
+	font-weight: 600;
+	color: #bfbfbf;
+	transition: color 300ms ease;
 }
 
-.animeTitle:hover{
-    color: #b388ff;
-    transition: color 300ms ease;
+.animeTitle:hover {
+	color: #b388ff;
+	transition: color 300ms ease;
 }
 
-.animeType{
-    font-size: 13px;
-    color: rgba(235, 235, 245, .5);
+.animeType {
+	font-size: 13px;
+	color: rgba(235, 235, 245, 0.5);
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+	.animeCardWrapper {
+		min-width: 115px;
+	}
+
+	.animeTitle {
+		font-size: 15px;
+	}
+
+	.animeType {
+		font-size: 12px;
+	}
 }

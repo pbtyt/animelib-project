@@ -1,17 +1,20 @@
-import { Search } from 'lucide-react';
+import { ArrowLeft, Search } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import SearchModalItem from '../SearchModalItem/SearchModalItem';
 import styles from './SearchModal.module.css';
 
+import useModal from '../../hooks/useModal';
 import { animeService } from '../../services/anime.service';
 import ModalBase from '../ModalBase/ModalBase';
 
-const SearchModal = () => {
+const SearchModal = ({ isMobileView = false }) => {
 	console.warn('[SearchModal]: Re-Render');
 	const [animeTitles, setAnimeTitles] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
+
+	const { hideModal } = useModal();
 
 	const contentRef = useRef(null);
 
@@ -23,9 +26,25 @@ const SearchModal = () => {
 		<ModalBase
 			contentRef={contentRef}
 			alignPos='top'
-			modalWindowWidth={'740px'}
-			offsetSettings={{ top: '20px' }}
+			modalWindowWidth={!isMobileView ? '740px' : '100%'}
+			modalWindowHeight={!isMobileView ? 'unset' : '100%'}
+			offsetSettings={!isMobileView ? { top: '20px' } : {}}
 		>
+			{isMobileView && (
+				<div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						gap: '.75rem',
+						padding: '.8rem',
+					}}
+				>
+					<button onClick={() => hideModal()}>
+						<ArrowLeft color='#fff' width={20} height={20} strokeWidth={2} />
+					</button>
+					<span style={{ fontWeight: '600' }}>Быстрый поиск</span>
+				</div>
+			)}
 			<div className={styles.inputWrapper}>
 				<Search color='rgba(235, 235, 245, .5)' strokeWidth={2} size={17} />
 				<input

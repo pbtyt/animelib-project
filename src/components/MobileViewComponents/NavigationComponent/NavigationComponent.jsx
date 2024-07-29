@@ -1,4 +1,4 @@
-import { Bookmark, Layers } from 'lucide-react';
+import { Bell, Bookmark, Fan, Layers, Menu } from 'lucide-react';
 import React from 'react';
 import styles from './NavigationComponent.module.css';
 
@@ -24,31 +24,6 @@ const NavigationComponent = () => {
 						// flexGrow: '1',
 					}}
 				>
-					<Layers color='#bfbfbf' size={18} strokeWidth={2} />
-					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
-				</button>
-				<button
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						alignItems: 'center',
-						justifyContent: 'center',
-						// flexGrow: '1',
-					}}
-				>
-					<Layers color='#bfbfbf' size={18} strokeWidth={2} />
-					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
-				</button>
-
-				<button
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						alignItems: 'center',
-						justifyContent: 'center',
-						// flexGrow: '1',
-					}}
-				>
 					<Bookmark color='#bfbfbf' size={18} strokeWidth={2} />
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
 				</button>
@@ -62,7 +37,34 @@ const NavigationComponent = () => {
 					}}
 				>
 					<Layers color='#bfbfbf' size={18} strokeWidth={2} />
-					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
+					<span style={{ fontSize: '11px', fontWeight: '600' }}>Каталог</span>
+				</button>
+
+				<button
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						justifyContent: 'center',
+						// flexGrow: '1',
+					}}
+				>
+					<Fan color='#bfbfbf' size={32} strokeWidth={2} />
+				</button>
+
+				<button
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						justifyContent: 'center',
+						// flexGrow: '1',
+					}}
+				>
+					<Bell color='#bfbfbf' size={18} strokeWidth={2} />
+					<span style={{ fontSize: '11px', fontWeight: '600' }}>
+						Уведомления
+					</span>
 				</button>
 				<button
 					style={{
@@ -73,8 +75,8 @@ const NavigationComponent = () => {
 						// flexGrow: '1',
 					}}
 				>
-					<Layers color='#bfbfbf' size={18} strokeWidth={2} />
-					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
+					<Menu color='#bfbfbf' size={18} strokeWidth={2} />
+					<span style={{ fontSize: '11px', fontWeight: '600' }}>Меню</span>
 				</button>
 			</div>
 		</div>

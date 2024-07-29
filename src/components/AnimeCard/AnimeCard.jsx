@@ -11,8 +11,8 @@ const AnimeCard = () => {
 					src='./posters/jujutsu-kaisen.jpg'
 					alt='poster'
 					className={styles.animeCardPoster}
-					width={135}
-					height={189}
+					// width={135}
+					// height={189}
 				/>
 				<span className={styles.episodeCount}>Эпизод 22</span>
 			</Link>

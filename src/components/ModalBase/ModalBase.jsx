@@ -7,6 +7,7 @@ const ModalBase = ({
 	attachmentPos = 'left',
 	alignPos = 'center',
 	modalWindowWidth,
+	modalWindowHeight = 'unset',
 	offsetSettings = {},
 	additionalStyles = {},
 	children,
@@ -32,6 +33,7 @@ const ModalBase = ({
 				`}
 				style={{
 					width: modalWindowWidth,
+					height: modalWindowHeight,
 					marginTop: offsetSettings?.top || '0px',
 					marginBottom: offsetSettings?.bottom || '0px',
 					...additionalStyles,
