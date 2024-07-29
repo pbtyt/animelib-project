@@ -93,7 +93,7 @@ const AnimePage = () => {
 						minMenuWidth='100%'
 						topOffset='-275'
 					>
-						{storedValue['UserFolders'].map(el => (
+						{storedValue.map(el => (
 							<DropDownItem
 								key={el.id}
 								text={el.name}

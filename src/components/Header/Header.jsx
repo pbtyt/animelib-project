@@ -41,7 +41,6 @@ const Header = () => {
 	//NOTE: ONLY FOR TEST
 	const [isLogin, setIsLogin] = useState(false);
 	const [notificationCount, setNotificationCount] = useState(2);
-
 	console.warn('[Header] Re-Render');
 	return (
 		<div className={styles.headerWrapper}>

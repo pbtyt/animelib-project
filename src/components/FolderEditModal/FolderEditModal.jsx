@@ -32,7 +32,7 @@ const FolderEditModal = () => {
 				/>
 			</div>
 			<div>
-				{storedValue['UserFolders'].map((element, index) => (
+				{storedValue.map((element, index) => (
 					<div className={styles.folderItem} key={element.id}>
 						<span>{element.name}</span>
 						<Menu color='#bfbfbf' width={16} height={16} strokeWidth={2} />
@@ -53,18 +53,6 @@ const FolderEditModal = () => {
 					text=''
 					additionalStyles={{ padding: '.5rem' }}
 					needHoverStyles={false}
-					onClick={() => {
-						const lastUsedFolderID = storedValue['UserFolders'].at(-1).id;
-						storedValue['UserFolders'].push({
-							id: lastUsedFolderID + 1,
-							name: inputValue,
-							color: '#d04ae8',
-							count: 0,
-						});
-						setValue({
-							UserFolders: storedValue['UserFolders'],
-						});
-					}}
 				/>
 			</div>
 		</ModalBase>

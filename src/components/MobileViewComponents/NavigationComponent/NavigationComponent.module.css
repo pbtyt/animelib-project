@@ -1,0 +1,9 @@
+.navWrapper {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 56px;
+	background-color: #252527;
+	width: 100%;
+}

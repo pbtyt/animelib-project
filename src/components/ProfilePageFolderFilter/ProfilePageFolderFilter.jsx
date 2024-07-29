@@ -18,7 +18,7 @@ const ProfilePageFolderFilter = () => {
 	const [selectedFolder, setSelectedFolder] = useState(1);
 	return (
 		<>
-			{storedValue['UserFolders'].map((element, index) => (
+			{storedValue.map((element, index) => (
 				<DropDownItem
 					key={element.id}
 					isSelect={selectedFolder === element.id}
@@ -32,7 +32,6 @@ const ProfilePageFolderFilter = () => {
 			))}
 			<DropDownItem
 				additionalStyles={{ display: 'flex' }}
-				// onClick={() => showModal(<FolderCustomizationModal />)}
 				onClick={() => showModal(<FolderEditModal />)}
 			>
 				<button
