@@ -9,8 +9,6 @@ import {
 } from 'lucide-react';
 import React, { useState } from 'react';
 
-import {} from 'lucide-react';
-
 import Scroller from '../../components/Scroller/Scroller';
 import Button from '../../ui/Button/Button';
 import styles from './MobileAnimePage.module.css';
@@ -34,7 +32,10 @@ const MobileAnimePage = ({ animeData }) => {
 			</div>
 			<div className={styles.coverWrapper}>
 				<img
-					src={animeData?.cover?.default}
+					src={
+						animeData?.cover?.default ||
+						'../placeholders/mobilepage/poster_placeholder.jpg'
+					}
 					alt='poster'
 					className={styles.cover}
 				/>
@@ -48,16 +49,22 @@ const MobileAnimePage = ({ animeData }) => {
 					}}
 				>
 					<Star fill='#ffb656' size={16} strokeWidth={0} />
-					<span style={{ fontWeight: '600' }}>{animeData?.rating}</span>
+					<span style={{ fontWeight: '600' }}>
+						{animeData?.rating || '10.0'}
+					</span>
 				</Button>
 			</div>
 
 			<div className={styles.titles}>
 				<div className={styles.title}>
 					<Info fill='#2C2C30' color='black' size={20} />
-					<span>{animeData?.titles?.ru}</span>
+					<span>
+						{animeData?.titles?.ru || 'Госпожа Кагуя: в любви как на войне 2'}
+					</span>
 				</div>
-				<h2 className={styles.subtitle}>{animeData?.titles?.eng}</h2>
+				<h2 className={styles.subtitle}>
+					{animeData?.titles?.title || 'Kaguya-sama: Love is War Season 2'}
+				</h2>
 			</div>
 
 			<div className={styles.buttons}>
@@ -84,8 +91,8 @@ const MobileAnimePage = ({ animeData }) => {
 					<Play fill='#fff' size={16} strokeWidth={0} />
 					<span className={styles.buttonTitle}>Смотреть</span>
 					<span className={styles.episodesCount}>
-						{animeData?.episodes_count?.uploaded} /{' '}
-						{animeData?.episodes_count?.total}
+						{animeData?.episodes_count?.uploaded || '12'} /{' '}
+						{animeData?.episodes_count?.total || '12'}
 					</span>
 				</Button>
 			</div>
@@ -156,7 +163,7 @@ const MobileAnimePage = ({ animeData }) => {
 						}}
 					>
 						<img
-							src='https://anilib.me/uploads/people/89439/cover/1d411415-33e2-40db-a26b-fe772ca6d82e_thumb.jpg'
+							src='../placeholders/mobilepage/author_placeholder.jpg'
 							alt='author_Poster'
 							width={28}
 							height={28}
@@ -188,7 +195,7 @@ const MobileAnimePage = ({ animeData }) => {
 						}}
 					>
 						<img
-							src='https://anilib.me/static/images/placeholders/user_avatar.png'
+							src='../placeholders/mobilepage/publisher_placeholder.png'
 							alt='publisher_Poster'
 							width={28}
 							height={28}
@@ -218,7 +225,8 @@ const MobileAnimePage = ({ animeData }) => {
 						<p
 							className={`${styles.desc} ${isDescHidden ? styles.hidden : ''}`}
 						>
-							{animeData?.description}
+							{animeData?.description ||
+								'Трудолюбивый Миюки Сироганэ  и первая красавица Кагуя Синомия  — два общепризнанных гения престижной академии Сютин, возглавляющие её студсовет. Они по-прежнему ведут свою любовную войну, отрицая чувства к друг другу, ведь признание в их романтическом поединке означает поражение!\n\nОднако для текущего студсовета год подходит к концу. Пути товарищей разойдутся по разным классам, почти не оставив точек для пересечения. К тому же на горизонте возникает новый соперник на должность президента студсовета. Что будут делать ребята? И кто же наконец выйдет победителем в этой любовной войне?'}
 						</p>
 						<button
 							style={{ color: '#b388ff' }}
@@ -236,7 +244,15 @@ const MobileAnimePage = ({ animeData }) => {
 							>
 								{genreTitle}
 							</Button>
-						))}
+						)) ||
+							['Комедия', 'Сэйнэн', 'Школа'].map(genreTitle => (
+								<Button
+									styleIndex={0}
+									additionalStyles={{ backgroundColor: '#252527' }}
+								>
+									{genreTitle}
+								</Button>
+							))}
 					</div>
 				</div>
 			</div>
