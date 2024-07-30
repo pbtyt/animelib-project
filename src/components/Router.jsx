@@ -13,7 +13,7 @@ const Router = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path='/' element={<Layout />}>
+				<Route path='/animelib-project/' element={<Layout />}>
 					<Route index element={<HomePage />} />
 					<Route path='catalog' element={<CatalogPage />} />
 					<Route path='profile' element={<ProfilePage />} />
