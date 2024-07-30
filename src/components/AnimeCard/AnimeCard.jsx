@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 const AnimeCard = () => {
 	return (
 		<div className={styles.animeCardWrapper}>
-			<Link className={styles.animeCardPosterWrapper} to={'/anime'}>
+			<Link
+				className={styles.animeCardPosterWrapper}
+				to={'/animelib-project/anime/156'}
+			>
 				<img
 					src='./posters/jujutsu-kaisen.jpg'
 					alt='poster'
