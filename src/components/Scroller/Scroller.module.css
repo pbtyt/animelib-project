@@ -3,7 +3,7 @@
 }
 
 .scroller {
-	padding-top: 8px;
+	/* padding-top: 8px; */
 
 	display: flex;
 	gap: 1rem;

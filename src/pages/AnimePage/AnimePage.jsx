@@ -22,10 +22,14 @@ import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
 import Input from '../../ui/Input/Input';
 
 import { useParams } from 'react-router-dom';
+import useCheckMobileScreen from '../../hooks/useCheckMobileScreen';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { animeService } from '../../services/anime.service';
+import MobileAnimePage from './MobileAnimePage';
 
 const AnimePage = () => {
+	const isMobileView = useCheckMobileScreen();
+
 	const { showModal } = useModal();
 	const modalRef = useRef(null);
 
@@ -46,7 +50,7 @@ const AnimePage = () => {
 			.catch(er => console.error(er));
 	}, [id]);
 
-	return (
+	return !isMobileView ? (
 		<div className={styles.container}>
 			<div className={styles.animeBg}>
 				<img src={animeData?.background_url} alt='title bg' />
@@ -284,6 +288,8 @@ const AnimePage = () => {
 				</div>
 			</div>
 		</div>
+	) : (
+		<MobileAnimePage animeData={animeData} />
 	);
 };
 

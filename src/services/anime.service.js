@@ -26,7 +26,7 @@ class AnimeService {
 		const response = await fetch(
 			`${
 				this.#BASE_URL
-			}/v1/title_id?id=${id}&q_filter=titles,description,time,episodes_count,release_date,cover,type,status,rating,background_url`
+			}/v1/title_id?id=${id}&q_filter=titles,description,time,episodes_count,release_date,cover,type,status,rating,background_url,genres`
 		);
 		const data = await response.json();
 

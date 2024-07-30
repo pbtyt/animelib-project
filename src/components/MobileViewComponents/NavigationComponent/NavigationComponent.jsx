@@ -1,7 +1,7 @@
 import { Bell, Bookmark, Fan, Layers, Menu } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './NavigationComponent.module.css';
-
 const NavigationComponent = () => {
 	console.warn('[NavigationComponent] Re-Render');
 	return (
@@ -15,8 +15,9 @@ const NavigationComponent = () => {
 					height: '100%',
 				}}
 			>
-				<button
+				<Link
 					style={{
+						color: '#bfbfbf',
 						display: 'flex',
 						flexDirection: 'column',
 						alignItems: 'center',
@@ -26,9 +27,10 @@ const NavigationComponent = () => {
 				>
 					<Bookmark color='#bfbfbf' size={18} strokeWidth={2} />
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
-				</button>
-				<button
+				</Link>
+				<Link
 					style={{
+						color: '#bfbfbf',
 						display: 'flex',
 						flexDirection: 'column',
 						alignItems: 'center',
@@ -38,22 +40,25 @@ const NavigationComponent = () => {
 				>
 					<Layers color='#bfbfbf' size={18} strokeWidth={2} />
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>Каталог</span>
-				</button>
+				</Link>
 
-				<button
+				<Link
 					style={{
+						color: '#bfbfbf',
 						display: 'flex',
 						flexDirection: 'column',
 						alignItems: 'center',
 						justifyContent: 'center',
 						// flexGrow: '1',
 					}}
+					to={'/'}
 				>
 					<Fan color='#bfbfbf' size={32} strokeWidth={2} />
-				</button>
+				</Link>
 
-				<button
+				<Link
 					style={{
+						color: '#bfbfbf',
 						display: 'flex',
 						flexDirection: 'column',
 						alignItems: 'center',
@@ -65,7 +70,7 @@ const NavigationComponent = () => {
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>
 						Уведомления
 					</span>
-				</button>
+				</Link>
 				<button
 					style={{
 						display: 'flex',
