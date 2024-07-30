@@ -76,7 +76,7 @@ const Header = () => {
 								text='Тайтлы'
 								isSelect={true}
 								onClick={() => {
-									navigate('/catalog');
+									navigate('./catalog');
 								}}
 							/>
 							<DropDownItem
@@ -257,7 +257,7 @@ const Header = () => {
 							backgroundColor: '#4d4d4d',
 							borderRadius: '5px',
 						}}
-						onClick={() => navigate('/profile')}
+						onClick={() => navigate('./profile')}
 					>
 						<img
 							src='../avatar.jpg'
@@ -292,7 +292,7 @@ const Header = () => {
 						<div style={{ width: '220px' }}>
 							<DropDownItem
 								onClick={() => {
-									navigate('/profile');
+									navigate('./profile');
 								}}
 								isSelect={true}
 							>
