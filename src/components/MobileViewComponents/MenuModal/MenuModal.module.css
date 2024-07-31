@@ -1,0 +1,69 @@
+.modalScroll {
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	height: 100%;
+}
+
+.content {
+	padding: 6px;
+	background-color: #7474801a;
+	height: 100%;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+
+	padding: 6px;
+
+	margin-bottom: 0.8rem;
+}
+
+.headerButton {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 15px;
+}
+
+.profileItems {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.profile {
+	display: flex;
+	align-items: center;
+	background-color: #252527;
+	border-radius: 8px;
+}
+
+.profileLink {
+	padding: 12px 18px;
+
+	flex-grow: 1;
+
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	color: #b388ff;
+	font-size: 15px;
+}
+
+.profileButtons {
+	display: flex;
+	align-items: center;
+}
+
+.profileButtons > * {
+	width: 56px;
+}
+
+.profile img {
+	border-radius: 50%;
+}

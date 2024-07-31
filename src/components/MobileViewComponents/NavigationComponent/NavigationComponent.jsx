@@ -2,8 +2,13 @@ import { Bell, Bookmark, Fan, Layers, Menu } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NavigationComponent.module.css';
+
+import useModal from '../../../hooks/useModal';
+import MenuModal from '../MenuModal/MenuModal';
+
 const NavigationComponent = () => {
 	console.warn('[NavigationComponent] Re-Render');
+	const { showModal } = useModal();
 	return (
 		<div className={styles.navWrapper}>
 			<div
@@ -51,7 +56,7 @@ const NavigationComponent = () => {
 						justifyContent: 'center',
 						// flexGrow: '1',
 					}}
-					to={'/'}
+					to={'/animelib-project/'}
 				>
 					<Fan color='#bfbfbf' size={32} strokeWidth={2} />
 				</Link>
@@ -79,6 +84,7 @@ const NavigationComponent = () => {
 						justifyContent: 'center',
 						// flexGrow: '1',
 					}}
+					onClick={() => showModal(<MenuModal />)}
 				>
 					<Menu color='#bfbfbf' size={18} strokeWidth={2} />
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>Меню</span>

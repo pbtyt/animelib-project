@@ -1,0 +1,20 @@
+.item {
+	background-color: #252527;
+	border-radius: 8px;
+	padding: 12px 18px;
+
+	display: flex;
+	align-items: center;
+}
+
+.item span {
+	text-align: left;
+	flex-grow: 1;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.item.opened {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}

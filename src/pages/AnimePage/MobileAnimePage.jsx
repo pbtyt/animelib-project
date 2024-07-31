@@ -237,16 +237,18 @@ const MobileAnimePage = ({ animeData }) => {
 					</div>
 
 					<div className={styles.genresWrapper}>
-						{animeData?.genres?.map(genreTitle => (
+						{animeData?.genres?.map((genreTitle, index) => (
 							<Button
+								key={index}
 								styleIndex={0}
 								additionalStyles={{ backgroundColor: '#252527' }}
 							>
 								{genreTitle}
 							</Button>
 						)) ||
-							['Комедия', 'Сэйнэн', 'Школа'].map(genreTitle => (
+							['Комедия', 'Сэйнэн', 'Школа'].map((genreTitle, index) => (
 								<Button
+									key={index}
 									styleIndex={0}
 									additionalStyles={{ backgroundColor: '#252527' }}
 								>
