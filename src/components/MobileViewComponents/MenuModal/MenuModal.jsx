@@ -73,7 +73,7 @@ const MenuModal = () => {
 											<MessageCircle
 												fill='currentColor'
 												strokeWidth={0}
-												size={20}
+												size={16}
 											/>
 											<span>Комментарии</span>
 										</Link>
@@ -96,7 +96,7 @@ const MenuModal = () => {
 											<MessageCircle
 												fill='currentColor'
 												strokeWidth={0}
-												size={20}
+												size={16}
 											/>
 											<span>Комментарии</span>
 										</Link>
