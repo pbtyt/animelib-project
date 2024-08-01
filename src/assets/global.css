@@ -18,8 +18,11 @@ body {
 }
 
 body.of-h {
-	overflow: hidden;
-	padding-right: 5px;
+	position: fixed;
+	overflow-y: scroll;
+	width: 100%;
+	/* overflow: hidden; */
+	/* margin-right: 5px; */
 }
 
 button {
