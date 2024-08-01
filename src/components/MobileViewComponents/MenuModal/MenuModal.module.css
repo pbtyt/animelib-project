@@ -15,9 +15,13 @@
 	display: flex;
 	align-items: center;
 
-	padding: 6px;
+	padding: 12px 6px 6px;
 
 	margin-bottom: 0.8rem;
+}
+
+a.headerButton {
+	color: #bfbfbf;
 }
 
 .headerButton {

@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import {
 	Bell,
 	Bookmark,
-	ChevronDown,
+	ChevronRight,
+	Layers,
+	MessageCircle,
 	Palette,
 	Search,
 	Settings,
@@ -33,10 +35,10 @@ const MenuModal = () => {
 							<Palette size={20} strokeWidth={2} color='#ebebf580' />
 							<span>Тема</span>
 						</button>
-						<button className={styles.headerButton}>
+						<Link className={styles.headerButton}>
 							<Settings size={20} strokeWidth={2} color='#ebebf580' />
 							<span>Настройки</span>
-						</button>
+						</Link>
 						<button className={styles.headerButton}>
 							<Search size={20} strokeWidth={2} color='#ebebf580' />
 							<span>Поиск</span>
@@ -63,11 +65,43 @@ const MenuModal = () => {
 								</div>
 							</div>
 
-							<MenuModalButton
-								icon={
-									<ChevronDown color='#ebebf580' strokeWidth={2} size={20} />
-								}
-							/>
+							<MenuModalButton menuModalButtonTitle='Профиль'>
+								{...Array(10)
+									.fill(0)
+									.map((el, index) => (
+										<Link key={index}>
+											<MessageCircle
+												fill='currentColor'
+												strokeWidth={0}
+												size={20}
+											/>
+											<span>Комментарии</span>
+										</Link>
+									))}
+							</MenuModalButton>
+
+							<MenuModalButton menuModalButtonTitle='Каталог'>
+								{/*Catalog Button*/}
+								<Link>
+									<Layers color='currentColor' strokeWidth={2} size={20} />
+									<span>Тайтлы</span>
+									<div style={{ flexGrow: '1' }}></div>
+									<ChevronRight color='#ebebf580' strokeWidth={2} size={18} />
+								</Link>
+								{/*Catalog Button*/}
+								{...Array(3)
+									.fill(0)
+									.map((el, index) => (
+										<Link key={index}>
+											<MessageCircle
+												fill='currentColor'
+												strokeWidth={0}
+												size={20}
+											/>
+											<span>Комментарии</span>
+										</Link>
+									))}
+							</MenuModalButton>
 						</div>
 					</div>
 				</div>

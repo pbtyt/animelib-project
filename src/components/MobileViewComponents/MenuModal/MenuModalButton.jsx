@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
-
 import styles from './MenuModalButton.module.css';
 
-const MenuModalButton = ({ icon }) => {
+import { ChevronDown, ChevronUp } from 'lucide-react';
+
+const MenuModalButton = ({ menuModalButtonTitle, children }) => {
 	const [opened, setOpened] = useState(false);
 	return (
-		<>
+		<div className={styles.item}>
 			<button
-				className={`${styles.item} ${opened ? styles.opened : ''}`}
+				className={styles.itemButton}
 				onClick={() => setOpened(prev => !prev)}
 			>
-				<span>Профиль</span>
-				{icon}
+				<span>{menuModalButtonTitle}</span>
+
+				{!opened ? (
+					<ChevronDown color='#ebebf580' strokeWidth={2} size={20} />
+				) : (
+					<ChevronUp color='#ebebf580' strokeWidth={2} size={20} />
+				)}
 			</button>
-			<div style={!opened ? { display: 'none' } : {}}>some</div>
-		</>
+			<div
+				className={styles.itemList}
+				style={!opened ? { display: 'none' } : {}}
+			>
+				{children}
+			</div>
+		</div>
 	);
 };
 
