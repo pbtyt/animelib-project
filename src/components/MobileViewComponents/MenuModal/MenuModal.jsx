@@ -27,6 +27,7 @@ const MenuModal = () => {
 				borderRadius: '0',
 				backgroundColor: '#0a0a0a',
 			}}
+			animationClassName={styles.appearance}
 		>
 			<div className={styles.modalScroll}>
 				<div className={styles.content}>

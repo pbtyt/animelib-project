@@ -10,6 +10,7 @@ const ModalBase = ({
 	modalWindowHeight = 'unset',
 	offsetSettings = {},
 	additionalStyles = {},
+	animationClassName = {},
 	children,
 }) => {
 	const { hideModal } = useModal();
@@ -30,6 +31,7 @@ const ModalBase = ({
 				className={`
 					${styles.modalContent}
 					${alignPos === 'center' ? styles.center : styles.top}
+					${animationClassName}
 				`}
 				style={{
 					width: modalWindowWidth,

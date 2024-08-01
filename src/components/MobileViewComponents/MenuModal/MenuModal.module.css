@@ -1,3 +1,19 @@
+@keyframes appearance {
+	from {
+		transform: translateX(342px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+.appearance {
+	animation: appearance 0.5s ease;
+}
+
 .modalScroll {
 	overflow-y: auto;
 	overflow-x: hidden;
