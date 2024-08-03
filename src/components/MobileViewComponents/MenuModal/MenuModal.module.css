@@ -1,7 +1,7 @@
 @keyframes appearance {
 	from {
 		transform: translateX(342px);
-		opacity: 0;
+		opacity: 0.5;
 	}
 
 	to {
@@ -10,8 +10,24 @@
 	}
 }
 
+@keyframes disappearance {
+	from {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+
+	to {
+		transform: translateX(400px);
+		opacity: 0;
+	}
+}
+
 .appearance {
-	animation: appearance 0.5s ease;
+	animation: appearance 0.3s ease;
+}
+
+.disappearance {
+	animation: disappearance 0.3s ease;
 }
 
 .modalScroll {

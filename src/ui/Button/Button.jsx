@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Button.module.css';
 
 const Button = ({
 	styleIndex = 0,
@@ -33,6 +34,7 @@ const Button = ({
 	return (
 		<button
 			style={Object.assign(buttonStyles[styleIndex], additionalStyles)}
+			className={styles.button}
 			onClick={onClick}
 		>
 			{children}

@@ -13,8 +13,15 @@ import Scroller from '../../components/Scroller/Scroller';
 import Button from '../../ui/Button/Button';
 import styles from './MobileAnimePage.module.css';
 
+import MobileAboutModal from '../../components/MobileViewComponents/MobileAboutModal/MobileAboutModal';
+import MobileEditFolderModal from '../../components/MobileViewComponents/MobileEditFolderModal/MobileEditFolderModal';
+import useModal from '../../hooks/useModal';
+
 const MobileAnimePage = ({ animeData }) => {
 	console.warn('[MobileAnimePage] Re-Render');
+
+	const { showModal } = useModal();
+
 	const [activeTab, setActiveTab] = useState(1);
 	const [isDescHidden, setIsDescHidden] = useState(true);
 	return (
@@ -55,7 +62,10 @@ const MobileAnimePage = ({ animeData }) => {
 				</Button>
 			</div>
 
-			<div className={styles.titles}>
+			<div
+				className={styles.titles}
+				onClick={() => showModal(<MobileAboutModal />)}
+			>
 				<div className={styles.title}>
 					<Info fill='#2C2C30' color='black' size={20} />
 					<span>
@@ -75,6 +85,7 @@ const MobileAnimePage = ({ animeData }) => {
 						lineHeight: '25px',
 						flexGrow: '1',
 					}}
+					onClick={() => showModal(<MobileEditFolderModal />)}
 				>
 					<Plus color='#bfbfbf' strokeWidth={2} size={14} />
 					<span className={styles.buttonTitle}>Добавить в</span>

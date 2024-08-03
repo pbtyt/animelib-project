@@ -10,11 +10,20 @@ const ModalBase = ({
 	modalWindowHeight = 'unset',
 	offsetSettings = {},
 	additionalStyles = {},
-	animationClassName = {},
+	appearanceAnimationClassName = '',
+	disappearanceAnimationClassName = '',
 	children,
 }) => {
 	const { hideModal } = useModal();
 	const modalRef = useRef(null);
+
+	const handleAnimationEnd = event => {
+		console.warn('[handleAnimationEnd] Invoke');
+		if (event.animationName === disappearanceAnimationClassName) {
+			hideModal();
+		}
+	};
+
 	return (
 		<div
 			className={`
@@ -23,15 +32,17 @@ const ModalBase = ({
 			`}
 			onClick={e => {
 				if (modalRef.current && !modalRef.current.contains(e.target)) {
-					hideModal();
+					modalRef.current.classList.remove(appearanceAnimationClassName);
+					modalRef.current.classList.add(disappearanceAnimationClassName);
 				}
 			}}
 		>
 			<div
+				onAnimationEnd={event => handleAnimationEnd(event)}
 				className={`
 					${styles.modalContent}
 					${alignPos === 'center' ? styles.center : styles.top}
-					${animationClassName}
+					${appearanceAnimationClassName}
 				`}
 				style={{
 					width: modalWindowWidth,

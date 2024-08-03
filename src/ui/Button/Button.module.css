@@ -1,0 +1,9 @@
+.button {
+	transition: transform 300ms ease;
+}
+
+.button:active {
+	transform: scale(0.96);
+
+	transition: transform 300ms ease;
+}
