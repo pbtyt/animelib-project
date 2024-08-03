@@ -6,7 +6,7 @@ function useLocalStorage(key, initialValue) {
 	const [storedValue, setStoredValue] = useState(() => {
 		console.log('[UseLocalStorage.js]: UseStateDefaultValue Func Invoke');
 		const item = window.localStorage.getItem(key);
-
+		console.log(item);
 		return item ? JSON.parse(item) : initialValue;
 	});
 

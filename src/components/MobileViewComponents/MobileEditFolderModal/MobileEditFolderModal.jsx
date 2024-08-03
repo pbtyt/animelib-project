@@ -34,7 +34,9 @@ const MobileEditFolderModal = () => {
 			<div className={styles.wrapper}>
 				<div className={styles.folders}>
 					{storedValue.map((element, index) => (
-						<button className={styles.folderButton}>{element.name}</button>
+						<button key={element.id} className={styles.folderButton}>
+							{element.name}
+						</button>
 					))}
 				</div>
 
