@@ -9,7 +9,7 @@ import useLocalStorage from '../../../hooks/useLocalStorage';
 
 import ModalBase from '../../ModalBase/ModalBase';
 
-const MobileEditFolderModal = () => {
+const MobileEditFolderModal = ({ onFolderSelected = folderData => {} }) => {
 	//NOTE: Only For TEST
 	const { setValue, storedValue } = useLocalStorage('folder', [
 		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
@@ -19,6 +19,18 @@ const MobileEditFolderModal = () => {
 		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
 	]);
 	const [inputValue, setInputValue] = useState();
+
+	const getNewFolderData = folderName => {
+		const lastID = storedValue.at(-1).id;
+
+		return {
+			id: lastID + 1,
+			name: folderName,
+			color: '#744cb5',
+			count: 0,
+		};
+	};
+
 	return (
 		<ModalBase
 			modalWindowWidth='100%'
@@ -34,7 +46,11 @@ const MobileEditFolderModal = () => {
 			<div className={styles.wrapper}>
 				<div className={styles.folders}>
 					{storedValue.map((element, index) => (
-						<button key={element.id} className={styles.folderButton}>
+						<button
+							key={element.id}
+							className={styles.folderButton}
+							onClick={() => onFolderSelected(element)}
+						>
 							{element.name}
 						</button>
 					))}
@@ -56,6 +72,10 @@ const MobileEditFolderModal = () => {
 						text=''
 						additionalStyles={{ padding: '.5rem' }}
 						needHoverStyles={false}
+						onClick={() => {
+							setValue([...storedValue, getNewFolderData(inputValue)]);
+							setInputValue('');
+						}}
 					/>
 				</div>
 			</div>

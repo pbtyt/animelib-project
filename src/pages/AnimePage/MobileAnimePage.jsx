@@ -1,6 +1,7 @@
 import {
 	ArrowLeft,
 	Bell,
+	Bookmark,
 	Ellipsis,
 	Info,
 	Play,
@@ -15,15 +16,18 @@ import styles from './MobileAnimePage.module.css';
 
 import MobileAboutModal from '../../components/MobileViewComponents/MobileAboutModal/MobileAboutModal';
 import MobileEditFolderModal from '../../components/MobileViewComponents/MobileEditFolderModal/MobileEditFolderModal';
+import MobileGradeModal from '../../components/MobileViewComponents/MobileGradeModal/MobileGradeModal';
 import useModal from '../../hooks/useModal';
 
 const MobileAnimePage = ({ animeData }) => {
 	console.warn('[MobileAnimePage] Re-Render');
 
-	const { showModal } = useModal();
+	const { showModal, hideModal } = useModal();
 
 	const [activeTab, setActiveTab] = useState(1);
 	const [isDescHidden, setIsDescHidden] = useState(true);
+
+	const [selectedFolder, setSelectedFolder] = useState({});
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
@@ -54,6 +58,7 @@ const MobileAnimePage = ({ animeData }) => {
 						position: 'absolute',
 						bottom: '10px',
 					}}
+					onClick={() => showModal(<MobileGradeModal />)}
 				>
 					<Star fill='#ffb656' size={16} strokeWidth={0} />
 					<span style={{ fontWeight: '600' }}>
@@ -85,10 +90,28 @@ const MobileAnimePage = ({ animeData }) => {
 						lineHeight: '25px',
 						flexGrow: '1',
 					}}
-					onClick={() => showModal(<MobileEditFolderModal />)}
+					onClick={() =>
+						showModal(
+							<MobileEditFolderModal
+								onFolderSelected={folderData => {
+									setSelectedFolder(folderData);
+									hideModal();
+								}}
+							/>
+						)
+					}
 				>
-					<Plus color='#bfbfbf' strokeWidth={2} size={14} />
-					<span className={styles.buttonTitle}>Добавить в</span>
+					{selectedFolder?.name ? (
+						<Bookmark size={22} fill={selectedFolder?.color} strokeWidth={0} />
+					) : (
+						<Plus color='#bfbfbf' strokeWidth={2} size={14} />
+					)}
+					<span
+						className={styles.buttonTitle}
+						style={{ color: selectedFolder?.color }}
+					>
+						{selectedFolder?.name ? selectedFolder.name : 'Добавить в'}
+					</span>
 				</Button>
 				<Button
 					styleIndex={1}

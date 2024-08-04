@@ -1,0 +1,49 @@
+@keyframes appearance {
+	from {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes disappearance {
+	from {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+
+	to {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+}
+
+.appearance {
+	animation: appearance 0.3s ease;
+}
+
+.disappearance {
+	animation: disappearance 0.3s ease;
+}
+
+.wrapper {
+	background-color: #1c1c1c;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+.titleWrapper {
+	padding: 14px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	flex-grow: 1;
+	font-size: 18px;
+	font-weight: 500;
+}
