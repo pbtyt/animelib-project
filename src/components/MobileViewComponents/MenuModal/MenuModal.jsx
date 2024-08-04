@@ -50,7 +50,10 @@ const MenuModal = () => {
 					<div className={styles.main}>
 						<div className={styles.profileItems}>
 							<div className={styles.profile}>
-								<Link className={styles.profileLink} to='/animelib-project/'>
+								<Link
+									className={styles.profileLink}
+									to='/animelib-project/profile'
+								>
 									<img
 										src='../placeholders/mobilepage/publisher_placeholder.png'
 										alt='user_poster'

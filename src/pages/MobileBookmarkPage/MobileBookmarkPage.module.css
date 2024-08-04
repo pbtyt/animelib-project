@@ -1,0 +1,93 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 56px;
+}
+
+.header {
+	width: 100%;
+	padding: 0.7rem;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	border-bottom: 1px solid rgba(84, 84, 88, 0.65);
+	background-color: #252527;
+}
+
+.headerLeft,
+.headerRight {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.headerButton {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.main {
+	width: 100%;
+}
+
+.tabs {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+
+	padding: 0 18px;
+
+	border-bottom: 1px solid rgba(84, 84, 88, 0.65);
+	background-color: #252527;
+}
+
+.tab {
+	flex-grow: 1;
+
+	text-align: center;
+
+	padding: 12px 0;
+	position: relative;
+
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.tabText {
+	font-size: 14px;
+	color: rgba(235, 235, 245, 0.5);
+	font-weight: 400;
+}
+
+.tabText.isActive {
+	color: #bfbfbf;
+}
+
+.tabText.isActive::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	width: 100%;
+	height: 3px;
+
+	border-radius: 3px 3px 0 0;
+	background-color: #9575cd;
+}
+
+.content {
+	padding: 12px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+	gap: 1rem;
+}

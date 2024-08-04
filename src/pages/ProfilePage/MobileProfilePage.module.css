@@ -1,0 +1,110 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 56px;
+}
+
+.header {
+	width: 100%;
+	padding: 0.7rem;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: #252527;
+}
+
+.headerLeft,
+.headerRight {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.settingsButton {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.backgroundImage {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.userCard {
+	padding: 12px;
+	padding-bottom: 24px;
+
+	background-color: #1c1c1cb3;
+	backdrop-filter: blur(10px);
+	border-radius: 8px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+
+	position: relative;
+	margin: -45px 12px 0;
+	z-index: 999;
+}
+
+.userInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.userIcon {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+
+	border: 3px solid #1c1c1c;
+}
+
+.userName {
+	font-size: 18px;
+}
+
+.userStatus,
+.userLevel {
+	color: #ebebf580;
+	font-size: 14px;
+}
+
+.userIcon {
+	margin-top: -55px;
+}
+
+.navigateButtons {
+	padding: 12px;
+	padding-top: 24px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.navigateButton {
+	background-color: #1c1c1c;
+	color: #bfbfbf;
+
+	padding: 14px 20px;
+	border-radius: 8px;
+
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+
+	font-size: 18px;
+}

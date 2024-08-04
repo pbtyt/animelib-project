@@ -9,7 +9,10 @@ import useModal from '../../hooks/useModal';
 import NoteModal from '../NoteModal/NoteModal';
 import ProfileCardEditModal from '../ProfileCardEditModal/ProfileCardEditModal';
 
-const ProfileGridAnimeCardItem = () => {
+const ProfileGridAnimeCardItem = ({
+	imgSrc = '',
+	title = 'Магическая битва',
+}) => {
 	console.warn('[ProfileGridAnimeCardItem]: Re-Render');
 	const { showModal } = useModal();
 
@@ -17,7 +20,7 @@ const ProfileGridAnimeCardItem = () => {
 		<div className={styles.cardWrapper}>
 			<div style={{ position: 'relative' }}>
 				<img
-					src='./posters/jujutsu-kaisen.jpg'
+					src={imgSrc ? imgSrc : './posters/jujutsu-kaisen.jpg'}
 					alt='poster'
 					className={styles.cardPoster}
 				/>
@@ -60,7 +63,7 @@ const ProfileGridAnimeCardItem = () => {
 			</div>
 
 			<div className={styles.cardInfo}>
-				<span className={styles.title}>Магическая битва</span>
+				<span className={styles.title}>{title}</span>
 				<span className={styles.status}>Продолжить 12 / 24</span>
 			</div>
 		</div>

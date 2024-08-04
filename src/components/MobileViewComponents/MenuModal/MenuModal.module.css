@@ -23,11 +23,11 @@
 }
 
 .appearance {
-	animation: appearance 0.3s ease;
+	animation: appearance 0.6s ease;
 }
 
 .disappearance {
-	animation: disappearance 0.3s ease;
+	animation: disappearance 0.6s ease;
 }
 
 .modalScroll {
