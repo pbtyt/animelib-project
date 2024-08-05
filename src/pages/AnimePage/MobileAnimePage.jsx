@@ -28,6 +28,12 @@ const MobileAnimePage = ({ animeData }) => {
 	const [isDescHidden, setIsDescHidden] = useState(true);
 
 	const [selectedFolder, setSelectedFolder] = useState({});
+
+	const handleOnFolderSelected = folderData => {
+		setSelectedFolder(folderData);
+		hideModal();
+	};
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
@@ -93,10 +99,7 @@ const MobileAnimePage = ({ animeData }) => {
 					onClick={() =>
 						showModal(
 							<MobileSelectFolderModal
-								onFolderSelected={folderData => {
-									setSelectedFolder(folderData);
-									hideModal();
-								}}
+								onFolderSelected={handleOnFolderSelected}
 							/>
 						)
 					}

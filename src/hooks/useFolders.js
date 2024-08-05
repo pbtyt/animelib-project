@@ -18,7 +18,7 @@ const useFolders = () => {
 		const newFolderData = {
 			id: lastUsedID + 1,
 			name: folderName,
-			color: '744cb5',
+			color: '#744cb5',
 			count: 0,
 			userCreated: true,
 		};
@@ -27,11 +27,24 @@ const useFolders = () => {
 		setFolders([...folders, newFolderData]);
 	};
 
+	const changeFolderData = (folderIdToChange, newFolderData) => {
+		console.log('changing...');
+
+		const oldFolderIndex = folders.findIndex(
+			folder => folder.id === folderIdToChange
+		);
+
+		folders[oldFolderIndex] = newFolderData;
+
+		setFolders([...folders]);
+		setValue([...folders]);
+	};
+
 	const removeFolder = folderID => {
 		setValue(storedValue.filter(folder => folder.id !== folderID));
 		setFolders(folders.filter(folder => folder.id !== folderID));
 	};
 
-	return { folders, addNewFolder, removeFolder };
+	return { folders, addNewFolder, removeFolder, changeFolderData };
 };
 export default useFolders;

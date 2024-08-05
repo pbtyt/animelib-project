@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FolderCustomizationModal.module.css';
 
 import useModal from '../../hooks/useModal';
@@ -17,7 +17,9 @@ const FolderCustomizationModal = ({
 }) => {
 	const { hideModal } = useModal();
 
-	const { folders, removeFolder } = useFolders();
+	const { folders, removeFolder, changeFolderData } = useFolders();
+
+	const [folderNameInput, setFolderNameInput] = useState(folderName);
 
 	return (
 		<ModalBase
@@ -36,7 +38,12 @@ const FolderCustomizationModal = ({
 			<div className={styles.modalMain}>
 				<div style={{ display: 'flex', flexDirection: 'column', gap: '.3rem' }}>
 					<span className={styles.subTitle}>Название папки</span>
-					<Input icon={<></>} placeholder='' inputValue={folderName} />
+					<Input
+						icon={<></>}
+						placeholder=''
+						inputValue={folderNameInput}
+						setInputValue={setFolderNameInput}
+					/>
 				</div>
 
 				<div
@@ -109,6 +116,16 @@ const FolderCustomizationModal = ({
 							backgroundColor: 'rgba(75,175,80,.05)',
 							color: 'rgba(75,175,80,1)',
 							flexGrow: '1',
+						}}
+						onClick={() => {
+							changeFolderData(folderData.id, {
+								id: folderData.id,
+								name: folderNameInput,
+								color: folderData.color,
+								count: folderData.count,
+								userCreated: folderData.userCreated,
+							});
+							hideModal();
 						}}
 					>
 						<Save

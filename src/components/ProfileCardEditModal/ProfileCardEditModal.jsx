@@ -12,12 +12,16 @@ import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 import Input from '../../ui/Input/Input';
 
 import { ChevronDown, Minus, Plus, Save, Star, Trash, X } from 'lucide-react';
+import useFolders from '../../hooks/useFolders';
 import GradeModal from '../GradeModal/GradeModal';
 
 const ProfileCardEditModal = () => {
 	const { hideModal, showModal } = useModal();
 
 	const [num, setNum] = useState(0);
+
+	const { folders } = useFolders();
+
 	return (
 		<ModalBase
 			modalWindowWidth={'400px'}
@@ -109,11 +113,13 @@ const ProfileCardEditModal = () => {
 						</Button>
 					}
 				>
-					<DropDownItem text='Читаю' isSelect={true} />
-					<DropDownItem text='В планах' />
-					<DropDownItem text='Брошено' />
-					<DropDownItem text='Прочитано' />
-					<DropDownItem text='Любимые' />
+					{folders.map(folder => (
+						<DropDownItem
+							key={folder.id}
+							text={folder.name}
+							isSelect={folder.id === 1}
+						/>
+					))}
 				</DropDown>
 			</div>
 			<div
