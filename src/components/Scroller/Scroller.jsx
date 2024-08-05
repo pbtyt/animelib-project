@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import styles from './Scroller.module.css';
 
 import { MoveLeft, MoveRight } from 'lucide-react';
+import useCheckMobileScreen from '../../hooks/useCheckMobileScreen';
 
 const Scroller = ({
 	children,
@@ -12,13 +13,16 @@ const Scroller = ({
 	const [isHoverL, setIsHoverL] = useState(false);
 	const [isHoverR, setIsHoverR] = useState(false);
 	const scrollerRef = useRef(null);
+
+	const isMobile = useCheckMobileScreen();
+
 	return (
 		<div className={styles.scrollerWrapper} style={style}>
 			<div className={styles.scroller} ref={scrollerRef}>
 				{children}
 			</div>
 
-			{controls && (
+			{controls && !isMobile && (
 				<div
 					className={styles.arrowWrapper}
 					style={{ right: '0', justifyContent: 'end' }}
@@ -39,7 +43,7 @@ const Scroller = ({
 					</button>
 				</div>
 			)}
-			{controls && (
+			{controls && !isMobile && (
 				<div
 					className={styles.arrowWrapper}
 					style={{ left: '0', justifyContent: 'start' }}

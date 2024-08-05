@@ -70,7 +70,10 @@ const MobileEditFolderModal = () => {
 									strokeWidth={2}
 									onClick={() =>
 										showModal(
-											<FolderCustomizationModal folderName={element.name} />
+											<FolderCustomizationModal
+												folderName={element.name}
+												folderData={element}
+											/>
 										)
 									}
 								/>

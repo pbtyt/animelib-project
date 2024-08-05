@@ -5,7 +5,6 @@ const useCheckMobileScreen = () => {
 
 	const handleWindowSizeChange = () => {
 		setWidth(window.outerWidth);
-		// console.log(window.outerWidth);
 	};
 
 	useEffect(() => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FolderCustomizationModal.module.css';
 
+import useLocalStorage from '../../hooks/useLocalStorage';
 import useModal from '../../hooks/useModal';
 import ModalBase from '../ModalBase/ModalBase';
 
@@ -12,8 +13,18 @@ import Input from '../../ui/Input/Input';
 
 const FolderCustomizationModal = ({
 	folderName = 'Пользовательская папка',
+	folderData = undefined,
 }) => {
 	const { hideModal } = useModal();
+
+	//NOTE: Only For TEST
+	const { setValue, storedValue } = useLocalStorage('folder', [
+		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
+		{ id: 2, name: 'В планах', color: '#2196f3', count: 0 },
+		{ id: 3, name: 'Брошено', color: '#f3382a', count: 0 },
+		{ id: 4, name: 'Прочитано', color: '#3cce7b', count: 0 },
+		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
+	]);
 	return (
 		<ModalBase
 			alignPos='center'
@@ -120,6 +131,11 @@ const FolderCustomizationModal = ({
 							backgroundColor: 'rgba(222, 112, 114, .1)',
 							color: '#de7072',
 							padding: '10px',
+						}}
+						onClick={() => {
+							setValue(
+								storedValue.filter(folder => folder.id !== folderData?.id)
+							);
 						}}
 					>
 						<Trash size={16} color='#de7072' strokeWidth={2} />

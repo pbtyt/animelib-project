@@ -74,7 +74,7 @@ const MobileBookmarkPage = () => {
 			<div className={styles.main}>
 				<Scroller controls={false}>
 					<div className={styles.tabs}>
-						<div className={styles.tab} onClick={() => setActiveTab(1)}>
+						<div className={styles.tab} onClick={() => setActiveTab(0)}>
 							<span
 								className={`${styles.tabText} ${
 									activeTab === 0 ? styles.isActive : ''

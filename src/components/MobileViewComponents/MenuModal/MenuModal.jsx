@@ -13,10 +13,14 @@ import {
 	Search,
 	Settings,
 } from 'lucide-react';
+
+import useModal from '../../../hooks/useModal';
+
 import ModalBase from '../../ModalBase/ModalBase';
 import MenuModalButton from './MenuModalButton';
 
 const MenuModal = () => {
+	const { hideModal } = useModal();
 	return (
 		<ModalBase
 			modalWindowWidth='calc(100% - 70px)'
@@ -52,6 +56,7 @@ const MenuModal = () => {
 							<div className={styles.profile}>
 								<Link
 									className={styles.profileLink}
+									onClick={() => hideModal()}
 									to='/animelib-project/profile'
 								>
 									<img

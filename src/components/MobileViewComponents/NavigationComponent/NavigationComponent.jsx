@@ -29,6 +29,7 @@ const NavigationComponent = () => {
 						justifyContent: 'center',
 						// flexGrow: '1',
 					}}
+					to='./profile/bookmarks'
 				>
 					<Bookmark color='#bfbfbf' size={18} strokeWidth={2} />
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>Закладки</span>
