@@ -22,13 +22,13 @@ const ProfileCardEditModal = () => {
 		<ModalBase
 			modalWindowWidth={'400px'}
 			alignPos='center'
-			offsetSettings={{ bottom: '10rem' }}
 			additionalStyles={{
 				padding: '18px',
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '.75rem',
 			}}
+			offsetSettings={{ bottom: '10rem' }}
 		>
 			<div className={styles.titleWrapper}>
 				<span className={styles.title}>Редактирование тайтла</span>

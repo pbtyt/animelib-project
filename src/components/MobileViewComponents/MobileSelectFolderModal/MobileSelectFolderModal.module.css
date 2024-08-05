@@ -37,15 +37,14 @@
 	border-radius: 10px;
 }
 
-.header {
-	padding: 14px 20px;
-	display: flex;
-	align-items: center;
+.folderButton {
+	padding: 8px 14px;
+	text-align: left;
+	font-size: 14px;
 }
 
-.header span {
-	flex-grow: 1;
-	font-weight: 600;
+.folderButton:hover {
+	background-color: rgba(116, 116, 128, 0.1);
 }
 
 .folders {
@@ -53,19 +52,6 @@
 	flex-direction: column;
 	padding: 6px;
 	gap: 0.3rem;
-}
-
-.folderItem {
-	padding: 7px 12px;
-	display: flex;
-	align-items: center;
-	gap: 0.8rem;
-	user-select: none;
-}
-
-.folderItem span {
-	text-align: left;
-	flex-grow: 1;
 }
 
 .newFolder {

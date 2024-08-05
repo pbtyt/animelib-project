@@ -15,8 +15,8 @@ import Button from '../../ui/Button/Button';
 import styles from './MobileAnimePage.module.css';
 
 import MobileAboutModal from '../../components/MobileViewComponents/MobileAboutModal/MobileAboutModal';
-import MobileEditFolderModal from '../../components/MobileViewComponents/MobileEditFolderModal/MobileEditFolderModal';
 import MobileGradeModal from '../../components/MobileViewComponents/MobileGradeModal/MobileGradeModal';
+import MobileSelectFolderModal from '../../components/MobileViewComponents/MobileSelectFolderModal/MobileSelectFolderModal';
 import useModal from '../../hooks/useModal';
 
 const MobileAnimePage = ({ animeData }) => {
@@ -92,7 +92,7 @@ const MobileAnimePage = ({ animeData }) => {
 					}}
 					onClick={() =>
 						showModal(
-							<MobileEditFolderModal
+							<MobileSelectFolderModal
 								onFolderSelected={folderData => {
 									setSelectedFolder(folderData);
 									hideModal();

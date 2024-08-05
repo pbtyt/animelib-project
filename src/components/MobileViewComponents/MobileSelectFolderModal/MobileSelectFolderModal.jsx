@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import styles from './MobileEditFolderModal.module.css';
+import styles from './MobileSelectFolderModal.module.css';
 
-import useLocalStorage from '../../../hooks/useLocalStorage';
-
+import { Plus } from 'lucide-react';
 import HeaderButton from '../../../ui/HeaderButton/HeaderButton';
 import Input from '../../../ui/Input/Input';
 
-import useModal from '../../../hooks/useModal';
+import useLocalStorage from '../../../hooks/useLocalStorage';
+
 import ModalBase from '../../ModalBase/ModalBase';
 
-import { Edit2, Menu, Plus, X } from 'lucide-react';
-import FolderCustomizationModal from '../../FolderCustomizationModal/FolderCustomizationModal';
-
-const MobileEditFolderModal = () => {
+const MobileSelectFolderModal = ({ onFolderSelected = folderData => {} }) => {
 	//NOTE: Only For TEST
 	const { setValue, storedValue } = useLocalStorage('folder', [
 		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
@@ -21,6 +18,7 @@ const MobileEditFolderModal = () => {
 		{ id: 4, name: 'Прочитано', color: '#3cce7b', count: 0 },
 		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
 	]);
+	const [inputValue, setInputValue] = useState();
 
 	const getNewFolderData = folderName => {
 		const lastID = storedValue.at(-1).id;
@@ -33,10 +31,6 @@ const MobileEditFolderModal = () => {
 			userCreated: true,
 		};
 	};
-
-	const [inputValue, setInputValue] = useState('');
-
-	const { hideModal, showModal } = useModal();
 
 	return (
 		<ModalBase
@@ -51,32 +45,15 @@ const MobileEditFolderModal = () => {
 			disappearanceAnimationClassName={styles.disappearance}
 		>
 			<div className={styles.wrapper}>
-				<div className={styles.header}>
-					<span>Редактирование списков</span>
-					<HeaderButton
-						icon={<X color='#bfbfbf' width={12} height={12} strokeWidth={3} />}
-						text=''
-						onClick={() => hideModal()}
-					/>
-				</div>
 				<div className={styles.folders}>
 					{storedValue.map((element, index) => (
-						<div className={styles.folderItem} key={element.id}>
-							<span>{element.name}</span>
-							{element.userCreated && (
-								<Edit2
-									color='#bfbfbf'
-									size={16}
-									strokeWidth={2}
-									onClick={() =>
-										showModal(
-											<FolderCustomizationModal folderName={element.name} />
-										)
-									}
-								/>
-							)}
-							<Menu color='#bfbfbf' width={16} height={16} strokeWidth={2} />
-						</div>
+						<button
+							key={element.id}
+							className={styles.folderButton}
+							onClick={() => onFolderSelected(element)}
+						>
+							{element.name}
+						</button>
 					))}
 				</div>
 
@@ -107,4 +84,4 @@ const MobileEditFolderModal = () => {
 	);
 };
 
-export default MobileEditFolderModal;
+export default MobileSelectFolderModal;

@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import styles from './MobileBookmarkPage.module.css';
 
+import useLocalStorage from '../../hooks/useLocalStorage';
+import useModal from '../../hooks/useModal';
+
 import { ArrowLeft, Edit2, Search, Settings } from 'lucide-react';
 import Scroller from '../../components/Scroller/Scroller';
 
+import BookmarkPageViewSettingsModal from '../../components/MobileViewComponents/BookmarkPageViewSettingsModal/BookmarkPageViewSettingsModal';
+import MobileEditFolderModal from '../../components/MobileViewComponents/MobileEditFolderModal/MobileEditFolderModal';
 import ProfileGridAnimeCardItem from '../../components/ProfileGridAnimeCardItem/ProfileGridAnimeCardItem';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import Input from '../../ui/Input/Input';
 
 const MobileBookmarkPage = () => {
 	console.warn('[MobileBookmarkPage] Re-Render');
 	const [activeTab, setActiveTab] = useState(0);
+
+	const [isSearchHeaderActive, setIsSearchHeaderActive] = useState(false);
+	const [searchInput, setSearchInput] = useState('');
 
 	//NOTE: Only For TEST
 	const { setValue, storedValue } = useLocalStorage('folder', [
@@ -20,29 +28,51 @@ const MobileBookmarkPage = () => {
 		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
 	]);
 
+	const { showModal } = useModal();
+
 	return (
 		<div className={styles.container}>
-			<div className={styles.header}>
-				<div className={styles.headerLeft}>
-					<ArrowLeft color='#bfbfbf' size={18} strokeWidth={2} />
-					<span>Мои списки</span>
-				</div>
+			{!isSearchHeaderActive ? (
+				<div className={styles.header}>
+					<div className={styles.headerLeft}>
+						<ArrowLeft color='#bfbfbf' size={18} strokeWidth={2} />
+						<span onClick={() => {}}>Мои списки</span>
+					</div>
 
-				<div className={styles.headerRight}>
-					<button className={styles.headerButton}>
-						<Search color='#bfbfbf' size={16} strokeWidth={2} />
-					</button>
-					<button className={styles.headerButton}>
-						<Edit2 color='#bfbfbf' size={16} strokeWidth={2} />
-					</button>
-					<button className={styles.headerButton}>
-						<Settings color='#bfbfbf' size={16} strokeWidth={2} />
-					</button>
+					<div className={styles.headerRight}>
+						<button
+							className={styles.headerButton}
+							onClick={() => setIsSearchHeaderActive(true)}
+						>
+							<Search color='#bfbfbf' size={16} strokeWidth={2} />
+						</button>
+						<button
+							className={styles.headerButton}
+							onClick={() => showModal(<MobileEditFolderModal />)}
+						>
+							<Edit2 color='#bfbfbf' size={16} strokeWidth={2} />
+						</button>
+						<button
+							className={styles.headerButton}
+							onClick={() => showModal(<BookmarkPageViewSettingsModal />)}
+						>
+							<Settings color='#bfbfbf' size={16} strokeWidth={2} />
+						</button>
+					</div>
 				</div>
-			</div>
-
+			) : (
+				<div className={styles.searchHeader}>
+					<Input
+						placeholder='Поиск по названию'
+						additionalStyles={{ flexGrow: '1', backgroundColor: '#1c1c1c' }}
+						inputValue={searchInput}
+						setInputValue={setSearchInput}
+					/>
+					<button onClick={() => setIsSearchHeaderActive(false)}>Отмена</button>
+				</div>
+			)}
 			<div className={styles.main}>
-				<Scroller>
+				<Scroller controls={false}>
 					<div className={styles.tabs}>
 						<div className={styles.tab} onClick={() => setActiveTab(1)}>
 							<span

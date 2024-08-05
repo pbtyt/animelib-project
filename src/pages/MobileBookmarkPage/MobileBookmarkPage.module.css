@@ -21,7 +21,7 @@
 .headerRight {
 	display: flex;
 	align-items: center;
-	gap: 0.7rem;
+	gap: 1rem;
 
 	font-weight: 500;
 	font-size: 18px;
@@ -31,6 +31,19 @@
 	display: flex;
 	align-items: center;
 	gap: 0.4rem;
+}
+
+.searchHeader {
+	width: 100%;
+
+	padding: 6.5px 12px;
+
+	background-color: #252527;
+	border-bottom: 1px solid rgba(84, 84, 88, 0.65);
+
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 }
 
 .main {
