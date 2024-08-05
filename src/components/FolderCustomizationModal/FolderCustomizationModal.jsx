@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './FolderCustomizationModal.module.css';
 
-import useLocalStorage from '../../hooks/useLocalStorage';
 import useModal from '../../hooks/useModal';
 import ModalBase from '../ModalBase/ModalBase';
 
 import { Save, Trash, X } from 'lucide-react';
+import useFolders from '../../hooks/useFolders';
 import Button from '../../ui/Button/Button';
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
@@ -17,14 +17,8 @@ const FolderCustomizationModal = ({
 }) => {
 	const { hideModal } = useModal();
 
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', [
-		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
-		{ id: 2, name: 'В планах', color: '#2196f3', count: 0 },
-		{ id: 3, name: 'Брошено', color: '#f3382a', count: 0 },
-		{ id: 4, name: 'Прочитано', color: '#3cce7b', count: 0 },
-		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
-	]);
+	const { folders, removeFolder } = useFolders();
+
 	return (
 		<ModalBase
 			alignPos='center'
@@ -133,9 +127,8 @@ const FolderCustomizationModal = ({
 							padding: '10px',
 						}}
 						onClick={() => {
-							setValue(
-								storedValue.filter(folder => folder.id !== folderData?.id)
-							);
+							removeFolder(folderData.id);
+							hideModal();
 						}}
 					>
 						<Trash size={16} color='#de7072' strokeWidth={2} />

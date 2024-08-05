@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-import useLocalStorage from '../../hooks/useLocalStorage';
-
 import TProfilePageFilterSectionItem from '../../templates/TProfilePageFilterSectionItem';
 import DropDownItem from '../../ui/DropDownItem/DropDownItem';
 
 import { Pencil } from 'lucide-react';
+import useFolders from '../../hooks/useFolders';
 import useModal from '../../hooks/useModal';
 import FolderEditModal from '../FolderEditModal/FolderEditModal';
 
@@ -13,12 +12,12 @@ const ProfilePageFolderFilter = () => {
 	console.warn('[ProfilePageFolderFilter]: Re-Render');
 	const { showModal } = useModal();
 
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', {});
+	const { folders } = useFolders();
+
 	const [selectedFolder, setSelectedFolder] = useState(1);
 	return (
 		<>
-			{storedValue.map((element, index) => (
+			{folders.map((element, index) => (
 				<DropDownItem
 					key={element.id}
 					isSelect={selectedFolder === element.id}

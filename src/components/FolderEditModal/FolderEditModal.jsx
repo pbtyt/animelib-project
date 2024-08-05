@@ -4,8 +4,7 @@ import styles from './FolderEditModal.module.css';
 import { Menu, Plus, X } from 'lucide-react';
 import HeaderButton from '../../ui/HeaderButton/HeaderButton';
 
-import useLocalStorage from '../../hooks/useLocalStorage';
-
+import useFolders from '../../hooks/useFolders';
 import useModal from '../../hooks/useModal';
 import Input from '../../ui/Input/Input';
 import ModalBase from '../ModalBase/ModalBase';
@@ -13,8 +12,8 @@ import ModalBase from '../ModalBase/ModalBase';
 const FolderEditModal = () => {
 	console.warn('[FolderEditModal]: Re-Render');
 	const { hideModal } = useModal();
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', {});
+
+	const { folders } = useFolders();
 
 	const [inputValue, setInputValue] = useState('');
 	return (
@@ -32,7 +31,7 @@ const FolderEditModal = () => {
 				/>
 			</div>
 			<div>
-				{storedValue.map((element, index) => (
+				{folders.map((element, index) => (
 					<div className={styles.folderItem} key={element.id}>
 						<span>{element.name}</span>
 						<Menu color='#bfbfbf' width={16} height={16} strokeWidth={2} />

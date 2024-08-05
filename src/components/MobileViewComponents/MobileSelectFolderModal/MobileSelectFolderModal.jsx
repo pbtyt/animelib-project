@@ -5,32 +5,13 @@ import { Plus } from 'lucide-react';
 import HeaderButton from '../../../ui/HeaderButton/HeaderButton';
 import Input from '../../../ui/Input/Input';
 
-import useLocalStorage from '../../../hooks/useLocalStorage';
-
+import useFolders from '../../../hooks/useFolders';
 import ModalBase from '../../ModalBase/ModalBase';
 
 const MobileSelectFolderModal = ({ onFolderSelected = folderData => {} }) => {
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', [
-		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
-		{ id: 2, name: 'В планах', color: '#2196f3', count: 0 },
-		{ id: 3, name: 'Брошено', color: '#f3382a', count: 0 },
-		{ id: 4, name: 'Прочитано', color: '#3cce7b', count: 0 },
-		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
-	]);
+	const { folders, addNewFolder } = useFolders();
+
 	const [inputValue, setInputValue] = useState();
-
-	const getNewFolderData = folderName => {
-		const lastID = storedValue.at(-1).id;
-
-		return {
-			id: lastID + 1,
-			name: folderName,
-			color: '#744cb5',
-			count: 0,
-			userCreated: true,
-		};
-	};
 
 	return (
 		<ModalBase
@@ -46,7 +27,7 @@ const MobileSelectFolderModal = ({ onFolderSelected = folderData => {} }) => {
 		>
 			<div className={styles.wrapper}>
 				<div className={styles.folders}>
-					{storedValue.map((element, index) => (
+					{folders.map((element, index) => (
 						<button
 							key={element.id}
 							className={styles.folderButton}
@@ -74,7 +55,7 @@ const MobileSelectFolderModal = ({ onFolderSelected = folderData => {} }) => {
 						additionalStyles={{ padding: '.5rem' }}
 						needHoverStyles={false}
 						onClick={() => {
-							setValue([...storedValue, getNewFolderData(inputValue)]);
+							addNewFolder(inputValue);
 							setInputValue('');
 						}}
 					/>

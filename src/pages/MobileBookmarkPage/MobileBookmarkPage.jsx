@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './MobileBookmarkPage.module.css';
 
-import useLocalStorage from '../../hooks/useLocalStorage';
 import useModal from '../../hooks/useModal';
 
 import { ArrowLeft, Edit2, Search, Settings } from 'lucide-react';
@@ -10,6 +9,7 @@ import Scroller from '../../components/Scroller/Scroller';
 import BookmarkPageViewSettingsModal from '../../components/MobileViewComponents/BookmarkPageViewSettingsModal/BookmarkPageViewSettingsModal';
 import MobileEditFolderModal from '../../components/MobileViewComponents/MobileEditFolderModal/MobileEditFolderModal';
 import ProfileGridAnimeCardItem from '../../components/ProfileGridAnimeCardItem/ProfileGridAnimeCardItem';
+import useFolders from '../../hooks/useFolders';
 import Input from '../../ui/Input/Input';
 
 const MobileBookmarkPage = () => {
@@ -19,15 +19,7 @@ const MobileBookmarkPage = () => {
 	const [isSearchHeaderActive, setIsSearchHeaderActive] = useState(false);
 	const [searchInput, setSearchInput] = useState('');
 
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', [
-		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
-		{ id: 2, name: 'В планах', color: '#2196f3', count: 0 },
-		{ id: 3, name: 'Брошено', color: '#f3382a', count: 0 },
-		{ id: 4, name: 'Прочитано', color: '#3cce7b', count: 0 },
-		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
-	]);
-
+	const { folders } = useFolders();
 	const { showModal } = useModal();
 
 	return (
@@ -83,8 +75,9 @@ const MobileBookmarkPage = () => {
 								Все
 							</span>
 						</div>
-						{storedValue.map(element => (
+						{folders.map(element => (
 							<div
+								key={element.id}
 								className={styles.tab}
 								onClick={() => setActiveTab(element.id)}
 							>

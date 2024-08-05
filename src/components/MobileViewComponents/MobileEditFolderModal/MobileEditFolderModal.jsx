@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styles from './MobileEditFolderModal.module.css';
 
-import useLocalStorage from '../../../hooks/useLocalStorage';
-
 import HeaderButton from '../../../ui/HeaderButton/HeaderButton';
 import Input from '../../../ui/Input/Input';
 
@@ -10,29 +8,11 @@ import useModal from '../../../hooks/useModal';
 import ModalBase from '../../ModalBase/ModalBase';
 
 import { Edit2, Menu, Plus, X } from 'lucide-react';
+import useFolders from '../../../hooks/useFolders';
 import FolderCustomizationModal from '../../FolderCustomizationModal/FolderCustomizationModal';
 
 const MobileEditFolderModal = () => {
-	//NOTE: Only For TEST
-	const { setValue, storedValue } = useLocalStorage('folder', [
-		{ id: 1, name: 'Читаю', color: '#ff9b40', count: 0 },
-		{ id: 2, name: 'В планах', color: '#2196f3', count: 0 },
-		{ id: 3, name: 'Брошено', color: '#f3382a', count: 0 },
-		{ id: 4, name: 'Прочитано', color: '#3cce7b', count: 0 },
-		{ id: 5, name: 'Любимые', color: '#ff6666', count: 0 },
-	]);
-
-	const getNewFolderData = folderName => {
-		const lastID = storedValue.at(-1).id;
-
-		return {
-			id: lastID + 1,
-			name: folderName,
-			color: '#744cb5',
-			count: 0,
-			userCreated: true,
-		};
-	};
+	const { folders, addNewFolder } = useFolders();
 
 	const [inputValue, setInputValue] = useState('');
 
@@ -60,7 +40,7 @@ const MobileEditFolderModal = () => {
 					/>
 				</div>
 				<div className={styles.folders}>
-					{storedValue.map((element, index) => (
+					{folders.map((element, index) => (
 						<div className={styles.folderItem} key={element.id}>
 							<span>{element.name}</span>
 							{element.userCreated && (
@@ -100,7 +80,7 @@ const MobileEditFolderModal = () => {
 						additionalStyles={{ padding: '.5rem' }}
 						needHoverStyles={false}
 						onClick={() => {
-							setValue([...storedValue, getNewFolderData(inputValue)]);
+							addNewFolder(inputValue);
 							setInputValue('');
 						}}
 					/>
