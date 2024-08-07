@@ -43,6 +43,7 @@ const NavigationComponent = () => {
 						justifyContent: 'center',
 						// flexGrow: '1',
 					}}
+					to='./catalog'
 				>
 					<Layers color='#bfbfbf' size={18} strokeWidth={2} />
 					<span style={{ fontSize: '11px', fontWeight: '600' }}>Каталог</span>

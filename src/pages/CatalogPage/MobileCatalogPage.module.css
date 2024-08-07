@@ -1,0 +1,49 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 56px;
+}
+.header {
+	width: 100%;
+	padding: 0.7rem;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: #252527;
+}
+
+.headerLeft,
+.headerRight {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.headerRight button {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	font-size: 14px;
+}
+
+.main {
+	background-color: #1c1c1c;
+	width: 100%;
+	min-height: calc(100vh - 104px); /*????*/
+
+	padding: 12px 8px;
+}
+
+.catalogWrapper {
+	padding-top: 12px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+	gap: 1rem;
+}
