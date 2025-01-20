@@ -1,24 +1,24 @@
-.checkboxWrapper{
-    display: flex;
-    gap: .35rem;
-    align-items: center;
-    justify-self: start;
+.checkboxWrapper {
+	display: flex;
+	gap: 0.35rem;
+	align-items: center;
+	justify-self: start;
 }
 
-.checkbox{
-    border: 2px solid rgba(235, 235, 245, .5);
-    width: 16px;
-    height: 16px;
-    border-radius: 3px;
-    position: relative;
+.checkbox {
+	border: 2px solid rgba(235, 235, 245, 0.5);
+	width: 16px;
+	height: 16px;
+	border-radius: 3px;
+	position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.checkboxText{
-    color: #bfbfbf;
-    font-weight: 400;
-    font-size: 14px;
+.checkboxText {
+	color: #bfbfbf;
+	font-weight: 400;
+	font-size: 14px;
 }
