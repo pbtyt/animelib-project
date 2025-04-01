@@ -1,5 +1,7 @@
-# ANIMElib project.
+## Внимание!
+Этот репозиторий содержит учебный проект, который имитирует сайт Anilib. 
+- Проект **не связан** с Anilib и не является официальным.
+- Код и дизайн созданы для изучения веб-разработки.
+- Никакая коммерческая деятельность не ведётся.
 
-A custom implementation of animelib with (attempted) preservation of the original design.
-
-*the project was created with the purpose of only "pumping" frontend skills
+*Этот учебный проект вдохновлен Anilib([ссылка](https://anilib.me)). Все права на бренд и контент принадлежат их правообладателям.*
